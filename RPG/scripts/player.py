@@ -47,5 +47,23 @@ class Player(GameObject):
                 else:
                     self.image = self.animation_dict[direction][2]
 
-    def update(self, event):
-        self.handle_event(event)
+    def update(self, *event):
+        for sprite in self.game.harm_sprites:
+            if pygame.sprite.collide_rect(self, sprite):
+                self.hp -= sprite.damage / self.game.FPS
+
+    def move(self):
+        if self.motion:
+            for direction in self.game.player.motion:
+                if self.motion.index(direction) == 0:
+                    if self.animation % 7 == 0:
+                        self.image = self.game.player.animation_dict[self.motion[0]][self.animation % 2]
+                else:
+                    if self.game.player.animation % 15 == 0:
+                        self.image = self.animation_dict[self.motion[0]][self.animation % 2]
+                self.animation += 1
+                self.rect.x += self.speed_dict[direction][0]
+                self.rect.y += self.speed_dict[direction][1]
+                if pygame.sprite.spritecollideany(self, self.game.walls_group):
+                    self.rect.x -= self.speed_dict[direction][0]
+                    self.rect.y -= self.speed_dict[direction][1]

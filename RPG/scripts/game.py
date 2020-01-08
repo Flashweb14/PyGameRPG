@@ -4,6 +4,7 @@ from RPG.scripts.tile import Tile
 from RPG.scripts.player import Player
 from RPG.scripts.camera import Camera
 from RPG.scripts.gui import HealthBar
+from RPG.scripts.fire import Fire
 
 pygame.init()
 
@@ -23,9 +24,13 @@ class Game:
         self.walls_group = pygame.sprite.Group()
         self.background_group = pygame.sprite.Group()
         self.gui_group = pygame.sprite.Group()
+        self.harm_sprites = pygame.sprite.Group()
 
         self.hp_bar = None
 
+        self.count = 0
+#TODO Сделать update gui_group
+#TODO Сделать логичный главный процесс
     @staticmethod
     def terminate():
         pygame.quit()
@@ -46,6 +51,7 @@ class Game:
                 elif level[y][x] == 'T':
                     Tile(self, 'empty', x, y)
                     tree = self, 'tree', x, y
+        Fire(self, 3, 4)
         self.player = Player(*player)
         Tile(*tree)
         self.hp_bar = HealthBar(self, 5, 10)

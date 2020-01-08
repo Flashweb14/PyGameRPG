@@ -28,3 +28,4 @@ HP_BAR_FULL = load_image('resources/sprites/gui/hp_bar/hp_bar_10.png')
 
 
 
+
