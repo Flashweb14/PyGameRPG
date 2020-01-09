@@ -14,14 +14,11 @@ def main_process(game):
             if event.type == pygame.QUIT:
                 game.terminate()
             game.player.handle_event(event)
-        game.player_group.update()
         game.player.move()
-        for sprite in game.all_sprites:
-            if sprite not in game.gui_group:
-                game.camera.apply(sprite)
-
-        game.harm_sprites.update()
-        game.gui_group.update()
+       #for sprite in game.all_sprites:
+            #if sprite not in game.gui_group:
+                #game.camera.apply(sprite)
+        game.all_sprites.update()
         game.all_sprites.draw(game.screen)
         game.clock.tick(game.FPS)
         if game.count < game.FPS:

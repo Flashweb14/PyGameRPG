@@ -15,4 +15,3 @@ class Fire(GameObject):
                 self.image_num = 0
             else:
                 self.image_num += 1
-            print(self.image_num)

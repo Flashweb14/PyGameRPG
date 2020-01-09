@@ -29,8 +29,8 @@ class Game:
         self.hp_bar = None
 
         self.count = 0
-#TODO Сделать update gui_group
-#TODO Сделать логичный главный процесс
+
+
     @staticmethod
     def terminate():
         pygame.quit()

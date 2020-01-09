@@ -24,6 +24,11 @@ PLAYER_LEFT_IMAGE = pygame.transform.flip(PLAYER_RIGHT_IMAGE, True, False)
 PLAYER_LEFT_1_IMAGE = pygame.transform.flip(PLAYER_RIGHT_1_IMAGE, True, False)
 PLAYER_LEFT_2_IMAGE = pygame.transform.flip(PLAYER_RIGHT_2_IMAGE, True, False)
 
+PLAYER_FRONT_SWORD = load_image('resources/sprites/player/sword/player_front_sword.png')
+PLAYER_BACK_SWORD = load_image('resources/sprites/player/sword/player_back_sword.png')
+PLAYER_RIGHT_SWORD = load_image('resources/sprites/player/sword/player_right_sword.png')
+PLAYER_LEFT_SWORD = pygame.transform.flip(PLAYER_RIGHT_SWORD, True, False)
+
 HP_BAR_FULL = load_image('resources/sprites/gui/hp_bar/hp_bar_10.png')
 
 
