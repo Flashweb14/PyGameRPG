@@ -29,6 +29,10 @@ PLAYER_BACK_SWORD = load_image('resources/sprites/player/sword/player_back_sword
 PLAYER_RIGHT_SWORD = load_image('resources/sprites/player/sword/player_right_sword.png')
 PLAYER_LEFT_SWORD = pygame.transform.flip(PLAYER_RIGHT_SWORD, True, False)
 
+RED_SLIME_1 = load_image('resources/sprites/enemies/red_slime/red_slime_1.png')
+RED_SLIME_2 = load_image('resources/sprites/enemies/red_slime/red_slime_2.png')
+RED_SLIME_3 = load_image('resources/sprites/enemies/red_slime/red_slime_3.png')
+
 HP_BAR_FULL = load_image('resources/sprites/gui/hp_bar/hp_bar_10.png')
 
 

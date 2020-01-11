@@ -83,7 +83,8 @@ class Player(GameObject):
                 self.animation += 1
                 self.rect.x += self.speed_dict[direction][0]
                 self.rect.y += self.speed_dict[direction][1]
-                if pygame.sprite.spritecollideany(self, self.game.walls_group):
+                if (pygame.sprite.spritecollideany(self, self.game.walls_group) or
+                        pygame.sprite.spritecollideany(self, self.game.enemy_group)):
                     self.rect.x -= self.speed_dict[direction][0]
                     self.rect.y -= self.speed_dict[direction][1]
 
