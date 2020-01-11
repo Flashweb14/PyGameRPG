@@ -5,6 +5,7 @@ from RPG.scripts.player import Player
 from RPG.scripts.camera import Camera
 from RPG.scripts.gui import HealthBar
 from RPG.scripts.fire import Fire
+from RPG.scripts.enemy import BaseEnemy
 
 pygame.init()
 
@@ -25,6 +26,7 @@ class Game:
         self.background_group = pygame.sprite.Group()
         self.gui_group = pygame.sprite.Group()
         self.harm_sprites = pygame.sprite.Group()
+        self.enemy_group = pygame.sprite.Group()
 
         self.hp_bar = None
 
@@ -54,6 +56,7 @@ class Game:
         Fire(self, 3, 4)
         self.player = Player(*player)
         Tile(*tree)
+        BaseEnemy(self, 5, 5, 5)
         self.hp_bar = HealthBar(self, 5, 10)
 
     def start_new_game(self, level):

@@ -31,15 +31,16 @@ class Player(GameObject):
         self.direction = 'down'
 
         self.hp = 10
-        self.attack = False
 
     def handle_event(self, event):
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_SPACE:
                 if self.motion:
                     self.image = self.animation_dict_sword[self.motion[0]]
+                    self.attack(self.speed_dict[self.motion[0]])
                 else:
                     self.image = self.animation_dict_sword[self.direction]
+                    self.attack(self.speed_dict[self.direction])
             if event.key in self.motion_dict:
                 self.direction = self.motion_dict[event.key]
                 if not self.motion:
@@ -85,3 +86,13 @@ class Player(GameObject):
                 if pygame.sprite.spritecollideany(self, self.game.walls_group):
                     self.rect.x -= self.speed_dict[direction][0]
                     self.rect.y -= self.speed_dict[direction][1]
+
+    def attack(self, speed):
+        check_sprite = pygame.sprite.Sprite()
+        check_sprite.rect = pygame.Rect((0, 0), (TILE_SIZE, TILE_SIZE))
+        check_sprite.rect.x = self.rect.x + speed[0] * 2
+        check_sprite.rect.y = self.rect.y + speed[1] * 2
+        for enemy in self.game.enemy_group:
+            if pygame.sprite.collide_rect(check_sprite, enemy):
+                enemy.hp -= 1
+                print(enemy.hp)
