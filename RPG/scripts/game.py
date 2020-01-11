@@ -6,6 +6,7 @@ from RPG.scripts.camera import Camera
 from RPG.scripts.gui import HealthBar
 from RPG.scripts.fire import Fire
 from RPG.scripts.red_slime import RedSlime
+from RPG.scripts.hp_bar_npc import HealthBarNPC
 
 pygame.init()
 

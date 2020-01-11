@@ -19,7 +19,7 @@ def main_process(game):
             if sprite not in game.gui_group:
                 game.camera.apply(sprite)
         game.all_sprites.update()
-        game.screen.fill((0, 0, 0))
+        game.screen.fill((pygame.Color('black')))
         game.all_sprites.draw(game.screen)
         game.clock.tick(game.FPS)
         if game.count < game.FPS:

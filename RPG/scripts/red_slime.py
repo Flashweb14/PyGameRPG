@@ -2,6 +2,7 @@ import pygame
 from RPG.scripts.base_enemy import BaseEnemy
 from RPG.scripts.utilities import load_image
 from RPG.scripts.consts import RED_SLIME_1, RED_SLIME_2, RED_SLIME_3, TILE_SIZE
+from RPG.scripts.hp_bar_npc import HealthBarNPC
 
 
 class RedSlime(BaseEnemy):
@@ -32,3 +33,4 @@ class RedSlime(BaseEnemy):
         for group in self.game.groups:
             if self in group:
                 group.remove(self)
+        self.game.all_sprites.remove(self.hp_bar)
