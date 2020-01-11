@@ -1,6 +1,6 @@
 import pygame
 from RPG.scripts.game_object import GameObject
-from RPG.scripts.utilities import load_image
+from RPG.scripts.consts import TILE_SIZE
 
 
 class BaseEnemy(GameObject):
@@ -9,3 +9,5 @@ class BaseEnemy(GameObject):
                          x, y, game.all_sprites, game.enemy_group)
         self.hp = hp
         self.damage = damage
+
+# TODO Полоску HP над врагами
