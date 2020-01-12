@@ -31,7 +31,7 @@ class Player(GameObject):
         self.direction = 'down'
 
         self.max_hp = 10
-        self.hp = self.max_hp
+        self.hp = 10
 
     def handle_event(self, event):
         if event.type == pygame.KEYDOWN:
