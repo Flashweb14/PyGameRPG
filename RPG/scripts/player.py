@@ -106,4 +106,3 @@ class Player(GameObject):
         for enemy in self.game.enemy_group:
             if pygame.sprite.collide_rect(check_sprite, enemy):
                 enemy.hp -= 1
-                print(enemy.hp)
