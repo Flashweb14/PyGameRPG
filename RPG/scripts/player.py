@@ -16,7 +16,7 @@ class Player(GameObject):
         self.rect.y = TILE_SIZE * y
 
         self.motion = []
-        self.speed = 4
+        self.speed = 240
         self.motion_dict = {pygame.K_w: 'up', pygame.K_s: 'down',
                             pygame.K_d: 'right', pygame.K_a: 'left'}
         self.speed_dict = {'up': (0, -self.speed), 'down': (0, self.speed),
@@ -32,6 +32,9 @@ class Player(GameObject):
 
         self.max_hp = 10
         self.hp = 10
+
+        self.x = self.rect.x
+        self.y = self.rect.y
 
     def handle_event(self, event):
         if event.type == pygame.KEYDOWN:
@@ -84,18 +87,22 @@ class Player(GameObject):
                     if self.game.player.animation % 15 == 0:
                         self.image = self.animation_dict[self.motion[0]][self.animation % 2]
                 self.animation += 1
-                self.rect.x += self.speed_dict[direction][0]
-                self.rect.y += self.speed_dict[direction][1]
+                self.x += self.speed_dict[direction][0] / self.game.FPS
+                self.y += self.speed_dict[direction][1] / self.game.FPS
+                self.rect.x = int(self.x)
+                self.rect.y = int(self.y)
                 if (pygame.sprite.spritecollideany(self, self.game.walls_group) or
                         pygame.sprite.spritecollideany(self, self.game.enemy_group)):
-                    self.rect.x -= self.speed_dict[direction][0]
-                    self.rect.y -= self.speed_dict[direction][1]
+                    self.x -= self.speed_dict[direction][0] / self.game.FPS
+                    self.y -= self.speed_dict[direction][1] / self.game.FPS
+                self.rect.x = int(self.x)
+                self.rect.y = int(self.y)
 
     def attack(self, speed):
         check_sprite = pygame.sprite.Sprite()
         check_sprite.rect = pygame.Rect((0, 0), (TILE_SIZE, TILE_SIZE))
-        check_sprite.rect.x = self.rect.x + speed[0] * 2
-        check_sprite.rect.y = self.rect.y + speed[1] * 2
+        check_sprite.rect.x = self.rect.x + speed[0] / 36
+        check_sprite.rect.y = self.rect.y + speed[1] / 36
         for enemy in self.game.enemy_group:
             if pygame.sprite.collide_rect(check_sprite, enemy):
                 enemy.hp -= 1
