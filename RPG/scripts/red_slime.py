@@ -34,3 +34,4 @@ class RedSlime(BaseEnemy):
             if self in group:
                 group.remove(self)
         self.game.all_sprites.remove(self.hp_bar)
+

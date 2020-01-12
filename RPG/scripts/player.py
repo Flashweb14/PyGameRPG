@@ -30,7 +30,8 @@ class Player(GameObject):
         self.animation = 0
         self.direction = 'down'
 
-        self.hp = 10
+        self.max_hp = 10
+        self.hp = self.max_hp
 
     def handle_event(self, event):
         if event.type == pygame.KEYDOWN:
@@ -70,6 +71,8 @@ class Player(GameObject):
         for sprite in self.game.harm_sprites:
             if pygame.sprite.collide_rect(self, sprite):
                 self.hp -= sprite.damage / self.game.FPS
+        if self.hp <= 0:
+            self.game.terminate()
 
     def move(self):
         if self.motion:
