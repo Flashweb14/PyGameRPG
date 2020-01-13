@@ -62,6 +62,11 @@ class Player(GameObject):
                     self.image = self.animation_dict[self.motion[0]][2]
                 else:
                     self.image = self.animation_dict[self.direction][2]
+            if event.key == pygame.K_i:
+                if self.game.inventory_opened:
+                    self.game.inventory_opened = False
+                else:
+                    self.game.inventory_opened = True
             if event.key in self.motion_dict:
                 self.direction = self.motion_dict[event.key]
                 self.motion.remove(self.direction)

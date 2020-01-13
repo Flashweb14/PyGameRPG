@@ -37,7 +37,8 @@ HP_BAR_0 = load_image('resources/sprites/gui/hp_bar/hp_bar_0.png')
 HP_BAR_1 = load_image('resources/sprites/gui/hp_bar/hp_bar_1.png')
 
 HP_BAR_NPC = load_image('resources/sprites/gui/npc_hp_bar.png')
-#HP_BAR_NPC = load_image('resources/sprites/enemies/red_slime/red_slime_1.png')
+
+INVENTORY_IMAGE = load_image('resources/sprites/gui/inventory/inventory.png')
 
 
 

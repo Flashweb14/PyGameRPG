@@ -5,7 +5,7 @@ pygame.init()
 screen = pygame.display.set_mode((640, 640))
 
 
-def load_image(filename, colorkey=None):
+def load_image(filename):
     image = pygame.image.load(filename).convert_alpha()
     return image
 

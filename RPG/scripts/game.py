@@ -7,18 +7,20 @@ from RPG.scripts.gui import HealthBar
 from RPG.scripts.fire import Fire
 from RPG.scripts.red_slime import RedSlime
 from RPG.scripts.hp_bar_npc import HealthBarNPC
+from RPG.scripts.inventory import Inventory
 
 pygame.init()
 
 
 class Game:
     def __init__(self):
-        self.size = self.width, self.height = 640, 640
+        self.size = self.width, self.height = 1920, 1080
         self.screen = pygame.display.set_mode(self.size)
         self.FPS = 60
         self.clock = pygame.time.Clock()
 
         self.player = None
+        self.inventory = None
         self.camera = Camera(self)
 
         self.all_sprites = pygame.sprite.Group()
@@ -35,6 +37,8 @@ class Game:
         self.hp_bar = None
 
         self.count = 0
+
+        self.inventory_opened = False
 
 
     @staticmethod
@@ -61,7 +65,9 @@ class Game:
         self.player = Player(*player)
         Tile(*tree)
         RedSlime(self, 5, 5)
+        RedSlime(self, 10, 10)
         self.hp_bar = HealthBar(self, 5, 10)
+        self.inventory = Inventory(self)
 
     def start_new_game(self, level):
         self.generate_level(level)

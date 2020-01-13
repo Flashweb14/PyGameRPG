@@ -9,6 +9,8 @@ def main_process(game):
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_h:
                     game.player.hp -= 1
+                if event.key == pygame.K_ESCAPE:
+                    game.terminate()
             if event.type == pygame.QUIT:
                 game.terminate()
             game.player.handle_event(event)
@@ -20,6 +22,8 @@ def main_process(game):
         game.all_sprites.update()
         game.screen.fill((pygame.Color('black')))
         game.all_sprites.draw(game.screen)
+        if game.inventory_opened:
+            game.gui_group.draw(game.screen)
         game.clock.tick(game.FPS)
         if game.count < game.FPS:
             game.count += 1
