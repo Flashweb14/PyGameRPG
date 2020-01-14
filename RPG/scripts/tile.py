@@ -12,4 +12,5 @@ class Tile(GameObject):
             self.game.walls_group.add(self)
         else:
             self.game.background_group.add(self)
+            self.game.all_sprites.remove(self)
 

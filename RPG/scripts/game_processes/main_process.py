@@ -21,6 +21,8 @@ def main_process(game):
         #         game.camera.apply(sprite)
         game.all_sprites.update()
         game.screen.fill((pygame.Color('black')))
+        game.background_group.draw(game.screen)
+        game.stopped_arrows_group.draw(game.screen)
         game.all_sprites.draw(game.screen)
         if game.inventory_opened:
             game.gui_group.draw(game.screen)

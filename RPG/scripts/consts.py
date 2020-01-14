@@ -40,5 +40,10 @@ HP_BAR_NPC = load_image('resources/sprites/gui/npc_hp_bar.png')
 
 INVENTORY_IMAGE = load_image('resources/sprites/gui/inventory/inventory.png')
 
+ARROW_IMAGE_LEFT = load_image('resources/sprites/game_objects/arrow/arrow_left.png')
+ARROW_IMAGE_RIGHT = pygame.transform.flip(ARROW_IMAGE_LEFT, True, False)
+ARROW_IMAGE_UP = load_image('resources/sprites/game_objects/arrow/arrow_up.png')
+ARROW_IMAGE_DOWN = pygame.transform.flip(ARROW_IMAGE_UP, False, True)
+
 
 

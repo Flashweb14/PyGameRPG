@@ -4,6 +4,7 @@ from RPG.scripts.consts import TILE_SIZE, PLAYER_FRONT_IMAGE, PLAYER_FRONT_1_IMA
     PLAYER_RIGHT_2_IMAGE, PLAYER_LEFT_IMAGE, PLAYER_LEFT_1_IMAGE, PLAYER_LEFT_2_IMAGE, PLAYER_FRONT_SWORD, \
     PLAYER_BACK_SWORD, PLAYER_RIGHT_SWORD, PLAYER_LEFT_SWORD
 from RPG.scripts.game_object import GameObject
+from RPG.scripts.arrow import Arrow
 
 pygame.init()
 
@@ -36,6 +37,8 @@ class Player(GameObject):
         self.x = self.rect.x
         self.y = self.rect.y
 
+        self.last_shot_time = None
+
     def handle_event(self, event):
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_SPACE:
@@ -45,6 +48,10 @@ class Player(GameObject):
                 else:
                     self.image = self.animation_dict_sword[self.direction]
                     self.attack(self.speed_dict[self.direction])
+            if event.key == pygame.K_e:
+                if not self.last_shot_time or pygame.time.get_ticks() - self.last_shot_time >= 3 * 10**2:
+                    self.shoot()
+                    self.last_shot_time = pygame.time.get_ticks()
             if event.key in self.motion_dict:
                 self.direction = self.motion_dict[event.key]
                 if not self.motion:
@@ -111,3 +118,9 @@ class Player(GameObject):
         for enemy in self.game.enemy_group:
             if pygame.sprite.collide_rect(check_sprite, enemy):
                 enemy.hp -= 1
+
+    def shoot(self):
+        if self.motion:
+            Arrow(self.game, self.motion[0])
+        else:
+            Arrow(self.game, self.direction)
