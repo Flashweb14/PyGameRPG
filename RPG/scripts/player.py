@@ -39,6 +39,8 @@ class Player(GameObject):
 
         self.last_shot_time = None
 
+        self.inventory = []
+
     def handle_event(self, event):
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_SPACE:
@@ -88,6 +90,12 @@ class Player(GameObject):
                 self.hp -= sprite.damage / self.game.FPS
         if self.hp <= 0:
             self.game.terminate()
+        for obj in self.game.pickable_objects:
+            if pygame.sprite.collide_rect(self, obj):
+                self.inventory.append(obj)
+                self.game.all_sprites.remove(obj)
+                self.game.pickable_objects.remove(obj)
+                self.game.inventory.add_item(obj)
 
     def move(self):
         if self.motion:

@@ -14,6 +14,8 @@ def main_process(game):
             if event.type == pygame.QUIT:
                 game.terminate()
             game.player.handle_event(event)
+            if game.inventory_opened:
+                game.inventory.handle_event(event)
         game.player.move()
         # game.camera.update(game.player)
         # for sprite in game.all_sprites:

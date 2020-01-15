@@ -3,11 +3,11 @@ import pygame
 from RPG.scripts.tile import Tile
 from RPG.scripts.player import Player
 from RPG.scripts.camera import Camera
-from RPG.scripts.gui import HealthBar
+from RPG.scripts.gui.health_bar import HealthBar
 from RPG.scripts.fire import Fire
 from RPG.scripts.red_slime import RedSlime
-from RPG.scripts.hp_bar_npc import HealthBarNPC
-from RPG.scripts.inventory import Inventory
+from RPG.scripts.gui.inventory.inventory import Inventory
+from RPG.scripts.food import Food
 
 pygame.init()
 
@@ -31,6 +31,8 @@ class Game:
         self.harm_sprites = pygame.sprite.Group()
         self.enemy_group = pygame.sprite.Group()
         self.stopped_arrows_group = pygame.sprite.Group()
+        self.inventory_cell_group = pygame.sprite.Group()
+        self.pickable_objects = pygame.sprite.Group()
 
         self.groups = [self.all_sprites, self.player_group, self.walls_group, self.background_group,
                        self.gui_group, self.harm_sprites, self.enemy_group]
@@ -69,6 +71,8 @@ class Game:
         RedSlime(self, 10, 10)
         self.hp_bar = HealthBar(self, 5, 10)
         self.inventory = Inventory(self)
+        Food(self, 'meat', 14, 7)
+        Food(self, 'meat', 14, 10)
 
     def start_new_game(self, level):
         self.generate_level(level)

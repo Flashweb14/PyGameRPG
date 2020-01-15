@@ -45,5 +45,12 @@ ARROW_IMAGE_RIGHT = pygame.transform.flip(ARROW_IMAGE_LEFT, True, False)
 ARROW_IMAGE_UP = load_image('resources/sprites/game_objects/arrow/arrow_up.png')
 ARROW_IMAGE_DOWN = pygame.transform.flip(ARROW_IMAGE_UP, False, True)
 
+INVENTORY_CELL_IMAGE = load_image('resources/sprites/gui/inventory/cell.png')
+INVENTORY_SELECTED_CELL_IMAGE = load_image('resources/sprites/gui/inventory/cell_selected.png')
+INVENTORY_CELL_IMAGE_1 = load_image('resources/sprites/gui/inventory/cell.png')
+INVENTORY_SELECTED_CELL_IMAGE_1 = load_image('resources/sprites/gui/inventory/cell_selected.png')
+
+FOOD_MEAT = load_image('resources/sprites/game_objects/food/meat.png')
+
 
 

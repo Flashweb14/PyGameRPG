@@ -10,6 +10,7 @@ class RedSlime(BaseEnemy):
         super().__init__(game, RED_SLIME_1, x, y, 5, 1)
         self.animation_list = [RED_SLIME_1, RED_SLIME_2, RED_SLIME_3]
         self.speed = 60
+        self.hp_bar = HealthBarNPC(game, self)
 
     def update(self):
         if self.game.count % 10 == 0:
@@ -18,3 +19,5 @@ class RedSlime(BaseEnemy):
             else:
                 self.image = self.animation_list[0]
         super().update()
+
+# TODO Пофиксить баг с хп баром

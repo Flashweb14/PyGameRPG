@@ -12,7 +12,7 @@ class BaseEnemy(GameObject):
         self.max_hp = max_hp
         self.damage = damage
         self.max_hp = max_hp
-        self.hp_bar = HealthBarNPC(game, self)
+        # self.hp_bar = HealthBarNPC(game, self)
         self.x = self.rect.x
         self.y = self.rect.y
         self.angered = False
