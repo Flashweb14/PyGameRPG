@@ -9,6 +9,7 @@ from RPG.scripts.red_slime import RedSlime
 from RPG.scripts.gui.inventory.inventory import Inventory
 from RPG.scripts.food import Food
 from RPG.scripts.gui.arrows_ind import ArrowsIndicator
+from RPG.scripts.gui.armor_ind import ArmorIndicator
 
 pygame.init()
 
@@ -42,6 +43,7 @@ class Game:
 
         self.hp_bar = None
         self.arrows_ind = None
+        self.armor_ind = None
 
         self.count = 0
 
@@ -74,7 +76,8 @@ class Game:
         RedSlime(self, 5, 5)
         RedSlime(self, 10, 10)
         self.hp_bar = HealthBar(self, 5, 10)
-        self.arrows_ind = ArrowsIndicator(self, 26, 70)
+        self.arrows_ind = ArrowsIndicator(self, 26, 140)
+        self.armor_ind = ArmorIndicator(self, 5, 70)
         self.inventory = Inventory(self)
         Food(self, 'meat', 9, 9)
         Food(self, 'meat', 14, 10)

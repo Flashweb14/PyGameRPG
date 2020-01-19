@@ -10,14 +10,14 @@ class ArrowsIndicator(GameObject):
         self.rect.y = y
         num = GAME_FONT.render(str(self.game.player.arrows_left), 0, pygame.Color('black'))
         num_rect = num.get_rect()
-        num_rect.x = 20
+        num_rect.x = 50
         num_rect.y = 10
         self.image.blit(num, num_rect)
 
     def update(self):
-        pygame.draw.rect(self.image, (0, 0, 0, 0), (12, 0, 58, 64))
+        pygame.draw.rect(self.image, (0, 0, 0, 0), (50, 0, 120, 64))
         num = GAME_FONT.render(str(self.game.player.arrows_left), 0, pygame.Color('black'))
         num_rect = num.get_rect()
-        num_rect.x = 20
+        num_rect.x = 50
         num_rect.y = 10
         self.image.blit(num, num_rect)

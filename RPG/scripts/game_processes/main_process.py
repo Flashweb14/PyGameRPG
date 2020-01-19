@@ -18,7 +18,7 @@ def main_process(game):
                 game.inventory.handle_event(event)
         game.player.move()
         game.all_sprites.update()
-        game.screen.fill((pygame.Color('black')))
+        game.screen.fill((pygame.Color('grey')))
         game.camera.update(game.player)
         for sprite in game.all_sprites:
             if sprite not in game.gui_group:

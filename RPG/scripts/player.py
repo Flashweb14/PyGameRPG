@@ -41,6 +41,8 @@ class Player(GameObject):
 
         self.arrows_left = 20
 
+        self.armor = 0
+
     def handle_event(self, event):
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_SPACE:

@@ -37,6 +37,7 @@ HP_BAR_0 = load_image('resources/sprites/gui/hp_bar/hp_bar_0.png')
 HP_BAR_1 = load_image('resources/sprites/gui/hp_bar/hp_bar_1.png')
 
 ARROWS_INDICATOR = load_image('resources/sprites/gui/arrows_ind.png')
+ARMOR_INDICATOR = load_image('resources/sprites/gui/armor_ind.png')
 
 HP_BAR_NPC = load_image('resources/sprites/gui/npc_hp_bar.png')
 
