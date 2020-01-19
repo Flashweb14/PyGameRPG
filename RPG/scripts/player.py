@@ -42,6 +42,8 @@ class Player(GameObject):
         self.arrows_left = 20
 
         self.armor = 0
+        self.damage = 3
+        self.bow_damage = 3
 
     def handle_event(self, event):
         if event.type == pygame.KEYDOWN:
@@ -137,7 +139,7 @@ class Player(GameObject):
         check_sprite.rect.y = self.rect.y + speed[1] / 36
         for enemy in self.game.enemy_group:
             if pygame.sprite.collide_rect(check_sprite, enemy):
-                enemy.hp -= 1
+                enemy.hp -= self.damage
 
     def shoot(self):
         self.arrows_left -= 1

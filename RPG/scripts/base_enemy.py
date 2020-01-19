@@ -8,10 +8,9 @@ class BaseEnemy(GameObject):
     def __init__(self, game, image, x, y, max_hp, damage):
         super().__init__(game, image,
                          x, y, game.all_sprites, game.enemy_group)
-        self.hp = 5
         self.max_hp = max_hp
+        self.hp = max_hp
         self.damage = damage
-        self.max_hp = max_hp
         # self.hp_bar = HealthBarNPC(game, self)
         self.x = x * TILE_SIZE
         self.y = y * TILE_SIZE

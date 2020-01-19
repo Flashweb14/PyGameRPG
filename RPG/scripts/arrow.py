@@ -38,7 +38,7 @@ class Arrow(GameObject):
                 self.y += self.game.player.speed_dict[self.direction][1] * 5 // self.game.FPS
             for enemy in self.game.enemy_group:
                 if pygame.sprite.collide_rect(self, enemy):
-                    enemy.hp -= 1
+                    enemy.hp -= self.game.player.bow_damage
                     self.game.all_sprites.remove(self)
                     if not enemy.angered:
                         enemy.angered = True

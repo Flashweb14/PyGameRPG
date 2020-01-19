@@ -66,4 +66,5 @@ DROP_BUTTON = load_image('resources/sprites/gui/inventory/drop_btn.png')
 GAME_FONT = pygame.font.Font('resources/fonts/font.ttf', 35)
 
 IRON_CHEST = load_image('resources/sprites/game_objects/armor/iron_chest.png')
+IRON_SWORD = load_image('resources/sprites/game_objects/weapon/iron_sword.png')
 

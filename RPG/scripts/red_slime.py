@@ -7,7 +7,7 @@ from RPG.scripts.hp_bar_npc import HealthBarNPC
 
 class RedSlime(BaseEnemy):
     def __init__(self, game, x, y):
-        super().__init__(game, RED_SLIME_1, x, y, 5, 1)
+        super().__init__(game, RED_SLIME_1, x, y, 56, 1)
         self.animation_list = [RED_SLIME_1, RED_SLIME_2, RED_SLIME_3]
         self.speed = 60
         self.hp_bar = HealthBarNPC(game, self)
