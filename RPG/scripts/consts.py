@@ -67,4 +67,6 @@ GAME_FONT = pygame.font.Font('resources/fonts/font.ttf', 35)
 
 IRON_CHEST = load_image('resources/sprites/game_objects/armor/iron_chest.png')
 IRON_SWORD = load_image('resources/sprites/game_objects/weapon/iron_sword.png')
+WOODEN_BOW = load_image('resources/sprites/game_objects/weapon/wooden_bow.png')
+GOLDEN_RING = load_image('resources/sprites/game_objects/rings/golden_ring.png')
 

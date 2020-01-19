@@ -1,4 +1,5 @@
 import pygame
+from random import randint
 from RPG.scripts.consts import TILE_SIZE, PLAYER_FRONT_IMAGE, PLAYER_FRONT_1_IMAGE, PLAYER_FRONT_2_IMAGE, \
     PLAYER_BACK_IMAGE, PLAYER_BACK_1_IMAGE, PLAYER_BACK_2_IMAGE, PLAYER_RIGHT_IMAGE, PLAYER_RIGHT_1_IMAGE, \
     PLAYER_RIGHT_2_IMAGE, PLAYER_LEFT_IMAGE, PLAYER_LEFT_1_IMAGE, PLAYER_LEFT_2_IMAGE, PLAYER_FRONT_SWORD, \
@@ -28,8 +29,8 @@ class Player(GameObject):
         self.animation = 0
         self.direction = 'down'
 
-        self.max_hp = 10
-        self.hp = 10
+        self.max_hp = 100
+        self.hp = 100
 
         self.x = self.game.width // 2 - self.rect.w // 2
         self.y = self.game.height // 2 - self.rect.h // 2
@@ -44,6 +45,7 @@ class Player(GameObject):
         self.armor = 0
         self.damage = 3
         self.bow_damage = 3
+        self.crit_chance = 95
 
     def handle_event(self, event):
         if event.type == pygame.KEYDOWN:
@@ -139,7 +141,10 @@ class Player(GameObject):
         check_sprite.rect.y = self.rect.y + speed[1] / 36
         for enemy in self.game.enemy_group:
             if pygame.sprite.collide_rect(check_sprite, enemy):
-                enemy.hp -= self.damage
+                if randint(0, self.crit_chance) == 1:
+                    enemy.hp -= self.damage * 2
+                else:
+                    enemy.hp -= self.damage
 
     def shoot(self):
         self.arrows_left -= 1

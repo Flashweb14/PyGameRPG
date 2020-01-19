@@ -56,6 +56,6 @@ class BaseEnemy(GameObject):
     def attack(self):
         cur_time = pygame.time.get_ticks()
         if cur_time - self.last_attack_time >= 10 ** 3:
-            self.game.player.hp -= self.damage
+            self.game.player.hp -= self.damage - self.game.player.armor
             self.last_attack_time = cur_time
 

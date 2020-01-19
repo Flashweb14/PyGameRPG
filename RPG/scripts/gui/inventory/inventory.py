@@ -4,6 +4,7 @@ from RPG.scripts.game_object import GameObject
 from RPG.scripts.gui.inventory.cell import Cell
 from RPG.scripts.gui.inventory.button import Button
 from RPG.scripts.armor import Armor
+from RPG.scripts.weapon import Weapon
 
 
 class Inventory(GameObject):
@@ -81,6 +82,27 @@ class Inventory(GameObject):
                 item = self.cells[i].item
                 self.cells[i].item = None
                 self.cells[i].selected = False
+                self.selected_cell = None
+                self.game.all_sprites.add(item)
+                self.game.pickable_objects.add(item)
+                item.x = self.game.player.x - 75
+                item.y = self.game.player.y
+                item.rect.x = self.game.player.rect.x - 75
+                item.rect.y = self.game.player.rect.y
+        for i in range(len(self.slots)):
+            if self.slots[i] == self.selected_cell:
+                item = self.slots[i].item
+                if isinstance(item, Armor):
+                    self.game.player.armor -= item.armor
+                elif isinstance(item, Weapon):
+                    if item.type == 'iron_sword':
+                        self.game.player.damage -= item.damage
+                    else:
+                        self.game.player.bow_damage -= item.damage
+                else:
+                    item.remove_effect()
+                self.slots[i].item = None
+                self.slots[i].selected = False
                 self.selected_cell = None
                 self.game.all_sprites.add(item)
                 self.game.pickable_objects.add(item)
