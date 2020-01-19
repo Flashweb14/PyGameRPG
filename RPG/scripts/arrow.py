@@ -42,7 +42,6 @@ class Arrow(GameObject):
                     self.game.all_sprites.remove(self)
                     if not enemy.angered:
                         enemy.angered = True
-            print(self.x, self.y)
         else:
             self.first_time = False
 

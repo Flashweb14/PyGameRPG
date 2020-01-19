@@ -52,5 +52,6 @@ INVENTORY_SELECTED_CELL_IMAGE_1 = load_image('resources/sprites/gui/inventory/ce
 
 FOOD_MEAT = load_image('resources/sprites/game_objects/food/meat.png')
 
-
+USE_BUTTON = load_image('resources/sprites/gui/inventory/use_btn.png')
+DROP_BUTTON = load_image('resources/sprites/gui/inventory/drop_btn.png')
 

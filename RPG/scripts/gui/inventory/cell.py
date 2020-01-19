@@ -1,10 +1,11 @@
 import pygame
 from RPG.scripts.game_object import GameObject
-from RPG.scripts.consts import INVENTORY_CELL_IMAGE, INVENTORY_SELECTED_CELL_IMAGE, INVENTORY_CELL_IMAGE_1, INVENTORY_SELECTED_CELL_IMAGE_1
+from RPG.scripts.consts import INVENTORY_CELL_IMAGE, INVENTORY_SELECTED_CELL_IMAGE, INVENTORY_CELL_IMAGE_1, \
+    INVENTORY_SELECTED_CELL_IMAGE_1
 
 
 class Cell(GameObject):
-    def __init__(self, game, inventory,  x, y):
+    def __init__(self, game, inventory, x, y):
         super().__init__(game, INVENTORY_CELL_IMAGE, 0, 0, game.gui_group, game.inventory_cell_group)
         self.image = INVENTORY_CELL_IMAGE
         self.inventory = inventory

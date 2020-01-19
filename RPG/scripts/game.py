@@ -19,6 +19,8 @@ class Game:
         self.FPS = 60
         self.clock = pygame.time.Clock()
 
+        pygame.mouse.set_visible(False)
+
         self.player = None
         self.inventory = None
         self.camera = Camera(self)
