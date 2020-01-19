@@ -85,6 +85,17 @@ class Player(GameObject):
                 else:
                     self.game.inventory_opened = True
                     pygame.mouse.set_visible(True)
+            if event.key == pygame.K_f:
+                check_sprite = pygame.sprite.Sprite()
+                check_sprite.rect = pygame.Rect((0, 0), (70, 70))
+                check_sprite.rect.x = self.rect.x - 3
+                check_sprite.rect.y = self.rect.y - 3
+                for chest in self.game.chests_group:
+                    if pygame.sprite.collide_rect(check_sprite, chest):
+                        if not chest.is_opened:
+                            chest.open()
+                        else:
+                            chest.close()
             if event.key in self.motion_dict:
                 self.direction = self.motion_dict[event.key]
                 self.motion.remove(self.direction)

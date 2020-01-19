@@ -13,6 +13,7 @@ from RPG.scripts.gui.armor_ind import ArmorIndicator
 from RPG.scripts.armor import Armor
 from RPG.scripts.weapon import Weapon
 from RPG.scripts.ring import Ring
+from RPG.scripts.chest import Chest
 
 pygame.init()
 
@@ -40,6 +41,7 @@ class Game:
         self.stopped_arrows_group = pygame.sprite.Group()
         self.inventory_cell_group = pygame.sprite.Group()
         self.pickable_objects = pygame.sprite.Group()
+        self.chests_group = pygame.sprite.Group()
 
         self.groups = [self.all_sprites, self.player_group, self.walls_group, self.background_group,
                        self.gui_group, self.harm_sprites, self.enemy_group]
@@ -88,6 +90,7 @@ class Game:
         Weapon(self, 'iron_sword', 10, 18, 8)
         Weapon(self, 'wooden_bow', 7, 20, 8)
         Ring(self, 'golden_ring', 22, 8)
+        Chest(self, Armor(self, 2, 16, 8), 24, 8)
 
     def start_new_game(self, level):
         self.generate_level(level)
