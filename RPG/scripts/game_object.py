@@ -1,5 +1,4 @@
 import pygame
-from RPG.scripts.utilities import load_image
 from RPG.scripts.consts import TILE_SIZE
 
 pygame.init()
@@ -11,7 +10,7 @@ class GameObject(pygame.sprite.Sprite):
         self.game = game
         self.image = image
         self.rect = self.image.get_rect()
-        self.rect.x = x * TILE_SIZE
-        self.rect.y = y * TILE_SIZE
+        self.x = x * TILE_SIZE
+        self.y = y * TILE_SIZE
 
 

@@ -71,7 +71,7 @@ class Game:
         RedSlime(self, 10, 10)
         self.hp_bar = HealthBar(self, 5, 10)
         self.inventory = Inventory(self)
-        Food(self, 'meat', 14, 7)
+        Food(self, 'meat', 9, 9)
         Food(self, 'meat', 14, 10)
 
     def start_new_game(self, level):

@@ -12,9 +12,9 @@ pygame.init()
 class Player(GameObject):
     def __init__(self, game, x, y):
         super().__init__(game, PLAYER_FRONT_IMAGE, x, y, game.player_group, game.all_sprites)
-        self.rect = pygame.Rect(((1, 1), (63, 63)))
-        self.rect.x = TILE_SIZE * x
-        self.rect.y = TILE_SIZE * y
+        self.rect = pygame.Rect(((2, 2), (62, 62)))
+        #self.rect.x = TILE_SIZE * x
+        #dself.rect.y = TILE_SIZE * y
 
         self.motion = []
         self.speed = 240
@@ -34,12 +34,13 @@ class Player(GameObject):
         self.max_hp = 10
         self.hp = 10
 
-        self.x = self.rect.x
-        self.y = self.rect.y
+        self.x = self.game.width // 2 - self.rect.w // 2
+        self.y = self.game.height // 2 - self.rect.h // 2
 
         self.last_shot_time = None
 
         self.inventory = []
+        self.first_time = True
 
     def handle_event(self, event):
         if event.type == pygame.KEYDOWN:
@@ -85,17 +86,20 @@ class Player(GameObject):
                     self.image = self.animation_dict[self.direction][2]
 
     def update(self, *event):
-        for sprite in self.game.harm_sprites:
-            if pygame.sprite.collide_rect(self, sprite):
-                self.hp -= sprite.damage / self.game.FPS
-        if self.hp <= 0:
-            self.game.terminate()
-        for obj in self.game.pickable_objects:
-            if pygame.sprite.collide_rect(self, obj):
-                self.inventory.append(obj)
-                self.game.all_sprites.remove(obj)
-                self.game.pickable_objects.remove(obj)
-                self.game.inventory.add_item(obj)
+        if not self.first_time:
+            for sprite in self.game.harm_sprites:
+                if pygame.sprite.collide_rect(self, sprite):
+                    self.hp -= sprite.damage / self.game.FPS
+            if self.hp <= 0:
+                self.game.terminate()
+            for obj in self.game.pickable_objects:
+                if pygame.sprite.collide_rect(self, obj):
+                    self.inventory.append(obj)
+                    self.game.all_sprites.remove(obj)
+                    self.game.pickable_objects.remove(obj)
+                    self.game.inventory.add_item(obj)
+        else:
+            self.first_time = False
 
     def move(self):
         if self.motion:
@@ -109,14 +113,14 @@ class Player(GameObject):
                 self.animation += 1
                 self.x += self.speed_dict[direction][0] / self.game.FPS
                 self.y += self.speed_dict[direction][1] / self.game.FPS
-                self.rect.x = int(self.x)
-                self.rect.y = int(self.y)
-                if (pygame.sprite.spritecollideany(self, self.game.walls_group) or
-                        pygame.sprite.spritecollideany(self, self.game.enemy_group)):
+                check_sprite = pygame.sprite.Sprite()
+                check_sprite.rect = pygame.Rect((2, 2), (TILE_SIZE - 2, TILE_SIZE - 2))
+                check_sprite.rect.x = self.rect.x + int(self.speed_dict[direction][0] / self.game.FPS)
+                check_sprite.rect.y = self.rect.y + int(self.speed_dict[direction][1] / self.game.FPS)
+                if (pygame.sprite.spritecollideany(check_sprite, self.game.walls_group) or
+                        pygame.sprite.spritecollideany(check_sprite, self.game.enemy_group)):
                     self.x -= self.speed_dict[direction][0] / self.game.FPS
                     self.y -= self.speed_dict[direction][1] / self.game.FPS
-                self.rect.x = int(self.x)
-                self.rect.y = int(self.y)
 
     def attack(self, speed):
         check_sprite = pygame.sprite.Sprite()

@@ -13,8 +13,8 @@ class BaseEnemy(GameObject):
         self.damage = damage
         self.max_hp = max_hp
         # self.hp_bar = HealthBarNPC(game, self)
-        self.x = self.rect.x
-        self.y = self.rect.y
+        self.x = x * TILE_SIZE
+        self.y = y * TILE_SIZE
         self.angered = False
         self.last_attack_time = False
 
@@ -44,17 +44,15 @@ class BaseEnemy(GameObject):
         self.game.all_sprites.remove(self.hp_bar)
 
     def move(self):
-        if self.game.player.rect.x > self.rect.x:
+        if self.game.player.x > self.x:
             self.x += self.speed / self.game.FPS
-        elif self.game.player.rect.x < self.rect.x:
+        elif self.game.player.x < self.x:
             self.x -= self.speed / self.game.FPS
-        self.rect.x = int(self.x)
 
-        if self.game.player.rect.y > self.rect.y:
+        if self.game.player.y > self.y:
             self.y += self.speed / self.game.FPS
-        elif self.game.player.rect.y < self.rect.y:
+        elif self.game.player.y < self.y:
             self.y -= self.speed / self.game.FPS
-        self.rect.y = int(self.y)
 
     def attack(self):
         cur_time = pygame.time.get_ticks()

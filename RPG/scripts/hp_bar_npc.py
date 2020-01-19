@@ -9,7 +9,7 @@ class HealthBarNPC(GameObject):
         self.npc = npc
 
     def update(self):
-        self.rect.x = self.npc.rect.x
-        self.rect.y = self.npc.rect.y - 15
+        self.x = self.npc.x
+        self.y = self.npc.y - 15
         pygame.draw.rect(self.image, (0, 0, 0, 0), (4, 4, 56, 8))
         pygame.draw.rect(self.image, (0, 255, 33), (4, 4, 56 // self.npc.max_hp * self.npc.hp, 8))

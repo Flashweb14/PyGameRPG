@@ -1,5 +1,5 @@
 import pygame
-from RPG.scripts.consts import TILE_IMAGES, TILE_SIZE
+from RPG.scripts.consts import TILE_IMAGES
 from RPG.scripts.game_object import GameObject
 
 pygame.init()

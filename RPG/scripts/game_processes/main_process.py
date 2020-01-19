@@ -17,12 +17,16 @@ def main_process(game):
             if game.inventory_opened:
                 game.inventory.handle_event(event)
         game.player.move()
-        # game.camera.update(game.player)
-        # for sprite in game.all_sprites:
-        #     if sprite not in game.gui_group:
-        #         game.camera.apply(sprite)
         game.all_sprites.update()
         game.screen.fill((pygame.Color('black')))
+        game.camera.update(game.player)
+        for sprite in game.all_sprites:
+            if sprite not in game.gui_group:
+                game.camera.apply(sprite)
+        for sprite in game.background_group:
+            game.camera.apply(sprite)
+        for sprite in game.stopped_arrows_group:
+            game.camera.apply(sprite)
         game.background_group.draw(game.screen)
         game.stopped_arrows_group.draw(game.screen)
         game.all_sprites.draw(game.screen)
