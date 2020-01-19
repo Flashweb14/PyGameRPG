@@ -1,5 +1,5 @@
 import pygame
-from RPG.scripts.consts import INVENTORY_IMAGE, INVENTORY_CELL_IMAGE, INVENTORY_SELECTED_CELL_IMAGE
+from RPG.scripts.consts import INVENTORY_IMAGE, INVENTORY_CELL_IMAGE, INVENTORY_SELECTED_CELL_IMAGE, TILE_SIZE
 from RPG.scripts.game_object import GameObject
 from RPG.scripts.gui.inventory.cell import Cell
 from RPG.scripts.gui.inventory.button import Button
@@ -51,19 +51,22 @@ class Inventory(GameObject):
                 cell.item = obj
                 break
         self.game.inventory_cell_group.update()
+        print('a')
 
     def drop_item(self):
-        self.game.all_sprites.add(self.selected_cell.item)
-        self.game.pickable_objects.add(self.selected_cell.item)
         for i in range(len(self.cells)):
             if self.cells[i] == self.selected_cell:
+                item = self.cells[i].item
                 self.cells[i].item = None
-        # self.game.inventory.remove(self.game.inventory.index(self.selected_cell.item))
-        speed = self.game.player.speed_dict[self.game.player.direction]
-        #self.selected_cell.item.x = self.game.player.x + speed[0]
-        #self.selected_cell.item.y = self.game.player.y + speed[1]
-        self.selected_cell.item = None
+                self.cells[i].selected = False
+                self.selected_cell = None
+                self.game.all_sprites.add(item)
+                self.game.pickable_objects.add(item)
+                item.x = self.game.player.x - 75
+                item.y = self.game.player.y
+                item.rect.x = self.game.player.rect.x - 75
+                item.rect.y = self.game.player.rect.y
+                print(item.x, item.y)
+        self.game.inventory_cell_group.update()
 
-
-
-
+# TODO Доработать систему выкидывания вещей
