@@ -53,10 +53,17 @@ INVENTORY_SELECTED_CELL_IMAGE = load_image('resources/sprites/gui/inventory/cell
 INVENTORY_CELL_IMAGE_1 = load_image('resources/sprites/gui/inventory/cell.png')
 INVENTORY_SELECTED_CELL_IMAGE_1 = load_image('resources/sprites/gui/inventory/cell_selected.png')
 
+INVENTORY_ARMOR_IMAGE = load_image('resources/sprites/gui/inventory/cell_armor.png')
+INVENTORY_SWORD_IMAGE = load_image('resources/sprites/gui/inventory/cell_sword.png')
+INVENTORY_BOW_IMAGE = load_image('resources/sprites/gui/inventory/cell_bow.png')
+INVENTORY_RING_IMAGE = load_image('resources/sprites/gui/inventory/cell_ring.png')
+
 FOOD_MEAT = load_image('resources/sprites/game_objects/food/meat.png')
 
 USE_BUTTON = load_image('resources/sprites/gui/inventory/use_btn.png')
 DROP_BUTTON = load_image('resources/sprites/gui/inventory/drop_btn.png')
 
 GAME_FONT = pygame.font.Font('resources/fonts/font.ttf', 35)
+
+IRON_CHEST = load_image('resources/sprites/game_objects/armor/iron_chest.png')
 

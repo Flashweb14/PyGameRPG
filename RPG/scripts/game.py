@@ -10,6 +10,7 @@ from RPG.scripts.gui.inventory.inventory import Inventory
 from RPG.scripts.food import Food
 from RPG.scripts.gui.arrows_ind import ArrowsIndicator
 from RPG.scripts.gui.armor_ind import ArmorIndicator
+from RPG.scripts.armor import Armor
 
 pygame.init()
 
@@ -81,6 +82,7 @@ class Game:
         self.inventory = Inventory(self)
         Food(self, 'meat', 9, 9)
         Food(self, 'meat', 14, 10)
+        Armor(self, 2, 16, 8)
 
     def start_new_game(self, level):
         self.generate_level(level)
