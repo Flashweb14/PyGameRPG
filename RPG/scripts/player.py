@@ -13,9 +13,6 @@ class Player(GameObject):
     def __init__(self, game, x, y):
         super().__init__(game, PLAYER_FRONT_IMAGE, x, y, game.player_group, game.all_sprites)
         self.rect = pygame.Rect(((2, 2), (62, 62)))
-        #self.rect.x = TILE_SIZE * x
-        #dself.rect.y = TILE_SIZE * y
-
         self.motion = []
         self.speed = 240
         self.motion_dict = {pygame.K_w: 'up', pygame.K_s: 'down',
@@ -42,6 +39,8 @@ class Player(GameObject):
         self.inventory = []
         self.first_time = True
 
+        self.arrows_left = 20
+
     def handle_event(self, event):
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_SPACE:
@@ -52,9 +51,10 @@ class Player(GameObject):
                     self.image = self.animation_dict_sword[self.direction]
                     self.attack(self.speed_dict[self.direction])
             if event.key == pygame.K_e:
-                if not self.last_shot_time or pygame.time.get_ticks() - self.last_shot_time >= 3 * 10**2:
-                    self.shoot()
-                    self.last_shot_time = pygame.time.get_ticks()
+                if self.arrows_left:
+                    if not self.last_shot_time or pygame.time.get_ticks() - self.last_shot_time >= 3 * 10**2:
+                        self.shoot()
+                        self.last_shot_time = pygame.time.get_ticks()
             if event.key in self.motion_dict:
                 self.direction = self.motion_dict[event.key]
                 if not self.motion:
@@ -100,6 +100,10 @@ class Player(GameObject):
                     self.game.all_sprites.remove(obj)
                     self.game.pickable_objects.remove(obj)
                     self.game.inventory.add_item(obj)
+            for arrow in self.game.stopped_arrows_group:
+                if pygame.sprite.collide_rect(self, arrow):
+                    self.arrows_left += 1
+                    self.game.stopped_arrows_group.remove(arrow)
         else:
             self.first_time = False
 
@@ -134,6 +138,7 @@ class Player(GameObject):
                 enemy.hp -= 1
 
     def shoot(self):
+        self.arrows_left -= 1
         if self.motion:
             Arrow(self.game, self.motion[0])
         else:

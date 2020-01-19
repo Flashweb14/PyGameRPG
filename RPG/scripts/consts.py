@@ -36,6 +36,8 @@ RED_SLIME_3 = load_image('resources/sprites/enemies/red_slime/red_slime_3.png')
 HP_BAR_0 = load_image('resources/sprites/gui/hp_bar/hp_bar_0.png')
 HP_BAR_1 = load_image('resources/sprites/gui/hp_bar/hp_bar_1.png')
 
+ARROWS_INDICATOR = load_image('resources/sprites/gui/arrows_ind.png')
+
 HP_BAR_NPC = load_image('resources/sprites/gui/npc_hp_bar.png')
 
 INVENTORY_IMAGE = load_image('resources/sprites/gui/inventory/inventory.png')
@@ -54,4 +56,6 @@ FOOD_MEAT = load_image('resources/sprites/game_objects/food/meat.png')
 
 USE_BUTTON = load_image('resources/sprites/gui/inventory/use_btn.png')
 DROP_BUTTON = load_image('resources/sprites/gui/inventory/drop_btn.png')
+
+GAME_FONT = pygame.font.Font('resources/fonts/font.ttf', 35)
 
