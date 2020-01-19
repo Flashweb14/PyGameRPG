@@ -5,6 +5,7 @@ from RPG.scripts.gui.inventory.cell import Cell
 from RPG.scripts.gui.inventory.button import Button
 from RPG.scripts.armor import Armor
 from RPG.scripts.weapon import Weapon
+from RPG.scripts.error import Error
 
 
 class Inventory(GameObject):
@@ -70,11 +71,20 @@ class Inventory(GameObject):
                     self.game.inventory_cell_group.update()
 
     def add_item(self, obj):
+        has_empty = False
         for cell in self.cells:
             if not cell.item:
                 cell.item = obj
+                has_empty = True
                 break
         self.game.inventory_cell_group.update()
+        if not has_empty:
+            error = Error(self.game, 'overweight')
+            error.rect.x = 1350
+            error.rect.y = 10
+            self.game.has_error = True
+            return False
+        return True
 
     def drop_item(self):
         for i in range(len(self.cells)):

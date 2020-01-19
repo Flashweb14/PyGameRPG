@@ -13,4 +13,7 @@ class GameObject(pygame.sprite.Sprite):
         self.x = x * TILE_SIZE
         self.y = y * TILE_SIZE
 
+    def handle_event(self, event):
+        pass
+
 

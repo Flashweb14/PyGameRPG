@@ -16,6 +16,9 @@ def main_process(game):
             game.player.handle_event(event)
             if game.inventory_opened:
                 game.inventory.handle_event(event)
+            if game.has_error:
+                for error in game.errors_group:
+                    error.handle_event(event)
         game.player.move()
         game.all_sprites.update()
         game.screen.fill((pygame.Color('grey')))
@@ -30,6 +33,9 @@ def main_process(game):
         game.background_group.draw(game.screen)
         game.stopped_arrows_group.draw(game.screen)
         game.all_sprites.draw(game.screen)
+        if game.has_error:
+            game.errors_group.draw(game.screen)
+            game.errors_group.update()
         if game.inventory_opened:
             game.gui_group.draw(game.screen)
         game.clock.tick(game.FPS)

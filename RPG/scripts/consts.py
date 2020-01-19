@@ -74,3 +74,6 @@ CHEST_CLOSED = load_image('resources/sprites/game_objects/chest/chest_closed.png
 CHEST_OPENED = load_image('resources/sprites/game_objects/chest/chest_opened.png')
 CHEST_GUI = load_image('resources/sprites/gui/chest_gui.png')
 
+OVERWEIGHT_ERROR = load_image('resources/sprites/gui/full_error.png')
+ERROR_CLOSE = load_image('resources/sprites/gui/error_close.png')
+

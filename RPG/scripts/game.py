@@ -14,6 +14,7 @@ from RPG.scripts.armor import Armor
 from RPG.scripts.weapon import Weapon
 from RPG.scripts.ring import Ring
 from RPG.scripts.chest import Chest
+from RPG.scripts.error import Error
 
 pygame.init()
 
@@ -42,6 +43,7 @@ class Game:
         self.inventory_cell_group = pygame.sprite.Group()
         self.pickable_objects = pygame.sprite.Group()
         self.chests_group = pygame.sprite.Group()
+        self.errors_group = pygame.sprite.Group()
 
         self.groups = [self.all_sprites, self.player_group, self.walls_group, self.background_group,
                        self.gui_group, self.harm_sprites, self.enemy_group]
@@ -53,7 +55,7 @@ class Game:
         self.count = 0
 
         self.inventory_opened = False
-
+        self.has_error = False
 
     @staticmethod
     def terminate():
@@ -85,6 +87,12 @@ class Game:
         self.armor_ind = ArmorIndicator(self, 5, 70)
         self.inventory = Inventory(self)
         Food(self, 'meat', 9, 9)
+        Food(self, 'meat', 14, 10)
+        Food(self, 'meat', 14, 10)
+        Food(self, 'meat', 14, 10)
+        Food(self, 'meat', 14, 10)
+        Food(self, 'meat', 14, 10)
+        Food(self, 'meat', 14, 10)
         Food(self, 'meat', 14, 10)
         Armor(self, 2, 16, 8)
         Weapon(self, 'iron_sword', 10, 18, 8)

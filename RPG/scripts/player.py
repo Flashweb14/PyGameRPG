@@ -113,10 +113,10 @@ class Player(GameObject):
                 self.game.terminate()
             for obj in self.game.pickable_objects:
                 if pygame.sprite.collide_rect(self, obj):
-                    self.inventory.append(obj)
-                    self.game.all_sprites.remove(obj)
-                    self.game.pickable_objects.remove(obj)
-                    self.game.inventory.add_item(obj)
+                    if self.game.inventory.add_item(obj):
+                        self.inventory.append(obj)
+                        self.game.all_sprites.remove(obj)
+                        self.game.pickable_objects.remove(obj)
             for arrow in self.game.stopped_arrows_group:
                 if pygame.sprite.collide_rect(self, arrow):
                     self.arrows_left += 1
