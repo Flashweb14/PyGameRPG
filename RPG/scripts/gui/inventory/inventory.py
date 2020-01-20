@@ -1,11 +1,11 @@
 import pygame
-from RPG.scripts.consts import INVENTORY_IMAGE, INVENTORY_CELL_IMAGE, INVENTORY_SELECTED_CELL_IMAGE, TILE_SIZE
+from RPG.scripts.consts import INVENTORY_IMAGE
 from RPG.scripts.game_object import GameObject
 from RPG.scripts.gui.inventory.cell import Cell
-from RPG.scripts.gui.inventory.button import Button
+from RPG.scripts.gui.button import Button
 from RPG.scripts.armor import Armor
 from RPG.scripts.weapon import Weapon
-from RPG.scripts.error import Error
+from RPG.scripts.gui.error import Error
 
 
 class Inventory(GameObject):
@@ -22,9 +22,10 @@ class Inventory(GameObject):
         self.armor_slot = Cell(self.game, self, 'armor', 235, 645)
         self.ring_slot = Cell(self.game, self, 'ring', 330, 645)
         self.slots = [self.sword_slot, self.bow_slot, self.armor_slot, self.ring_slot]
-        self.drop_btn = Button(game, self, 310, 465, 'drop')
-        self.use_btn = Button(game, self, 310, 395, 'use')
+        self.drop_btn = Button(game, self.rect.x + 310, self.rect. y + 465, 'drop')
+        self.use_btn = Button(game, self.rect.x + 310, self.rect.y + 395, 'use')
         self.selected_cell = None
+        self.game.inventory_cell_group.update()
 
     def update(self):
         self.game.inventory_cell_group.draw(self.image)

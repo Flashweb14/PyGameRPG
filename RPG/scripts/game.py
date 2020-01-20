@@ -14,7 +14,6 @@ from RPG.scripts.armor import Armor
 from RPG.scripts.weapon import Weapon
 from RPG.scripts.ring import Ring
 from RPG.scripts.chest import Chest
-from RPG.scripts.error import Error
 
 pygame.init()
 
