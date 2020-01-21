@@ -38,8 +38,11 @@ def main_process(game):
         game.all_sprites.draw(game.screen)
         game.errors_group.draw(game.screen)
         game.errors_group.update()
+        game.player_group.draw(game.screen)
         if game.inventory_opened:
             game.gui_group.draw(game.screen)
+        if game.journal_opened:
+            game.journal_group.draw(game.screen)
         game.quest_gui_group.draw(game.screen)
         game.clock.tick(game.FPS)
         if game.count < game.FPS:

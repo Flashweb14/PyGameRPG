@@ -16,6 +16,8 @@ from RPG.scripts.ring import Ring
 from RPG.scripts.chest import Chest
 from RPG.scripts.quest_npc import QuestNPC
 from RPG.scripts.consts import RED_SHIRT_NPC
+from RPG.scripts.kill_quest import KillQuest
+from RPG.scripts.gui.journal import Journal
 
 pygame.init()
 
@@ -30,6 +32,7 @@ class Game:
 
         self.player = None
         self.inventory = None
+        self.journal = None
         self.camera = Camera(self)
 
         self.all_sprites = pygame.sprite.Group()
@@ -46,6 +49,7 @@ class Game:
         self.errors_group = pygame.sprite.Group()
         self.npc_group = pygame.sprite.Group()
         self.quest_gui_group = pygame.sprite.Group()
+        self.journal_group = pygame.sprite.Group()
 
         self.groups = [self.all_sprites, self.player_group, self.walls_group, self.background_group,
                        self.gui_group, self.harm_sprites, self.enemy_group]
@@ -57,6 +61,7 @@ class Game:
         self.count = 0
 
         self.inventory_opened = False
+        self.journal_opened = False
 
     @staticmethod
     def terminate():
@@ -80,9 +85,10 @@ class Game:
                     tree = self, 'tree', x, y
         Fire(self, 3, 4)
         self.player = Player(*player)
+        self.journal = Journal(self)
         Tile(*tree)
-        RedSlime(self, 5, 5)
-        RedSlime(self, 10, 10)
+        RedSlime(self, 5, 5, 'Red Slime')
+        RedSlime(self, 10, 10, "Red Slime")
         self.hp_bar = HealthBar(self, 5, 10)
         self.arrows_ind = ArrowsIndicator(self, 26, 140)
         self.armor_ind = ArmorIndicator(self, 5, 70)
@@ -100,7 +106,24 @@ class Game:
         Weapon(self, 'wooden_bow', 7, 20, 8)
         Ring(self, 'golden_ring', 22, 8)
         Chest(self, Armor(self, 2, 16, 8), 24, 8)
-        QuestNPC(self, RED_SHIRT_NPC, 26, 10)
+        QuestNPC(self, RED_SHIRT_NPC, KillQuest(self, 'Slime Killing', ['Hello, stranger!',
+                                                                        'Our village in danger,',
+                                                                        'group of slimes',
+                                                                        'appeared in the',
+                                                                        'nearest forrest',
+                                                                        'can you help us?',
+                                                                        'kill 10 slimes'],
+                                                'Red Slime',
+                                                Weapon(self, 'iron_sword', -500, -500, 8), 2), 15, 7)
+        QuestNPC(self, RED_SHIRT_NPC, KillQuest(self, 'Village In Danger', ['Hello, stranger!',
+                                                                            'Our village in danger,',
+                                                                            'group of slimes',
+                                                                            'appeared in the',
+                                                                            'nearest forrest',
+                                                                            'can you help us?',
+                                                                            'kill 10 slimes'],
+                                                'Red Slime',
+                                                Armor(self, 'iron_chest', -500, -500), 1), 22, 15)
 
     def start_new_game(self, level):
         self.generate_level(level)

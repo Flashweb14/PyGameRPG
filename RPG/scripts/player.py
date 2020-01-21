@@ -47,6 +47,8 @@ class Player(GameObject):
         self.bow_damage = 3
         self.crit_chance = 95
 
+        self.quests = []
+
     def handle_event(self, event):
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_SPACE:
@@ -84,6 +86,11 @@ class Player(GameObject):
                     pygame.mouse.set_visible(False)
                 else:
                     self.game.inventory_opened = True
+            if event.key == pygame.K_j:
+                if self.game.journal_opened:
+                    self.game.journal_opened = False
+                else:
+                    self.game.journal_opened = True
             if event.key == pygame.K_f:
                 check_sprite = pygame.sprite.Sprite()
                 check_sprite.rect = pygame.Rect((0, 0), (70, 70))

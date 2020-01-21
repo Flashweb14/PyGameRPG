@@ -5,7 +5,7 @@ from RPG.scripts.hp_bar_npc import HealthBarNPC
 
 
 class BaseEnemy(GameObject):
-    def __init__(self, game, image, x, y, max_hp, damage):
+    def __init__(self, game, image, x, y, max_hp, damage, name):
         super().__init__(game, image,
                          x, y, game.all_sprites, game.enemy_group)
         self.max_hp = max_hp
@@ -16,10 +16,16 @@ class BaseEnemy(GameObject):
         self.y = y * TILE_SIZE
         self.angered = False
         self.last_attack_time = False
+        self.name = name
 
     def update(self):
         if self.hp <= 0:
             self.die()
+            for quest in self.game.player.quests:
+                if quest.enemy == self.name:
+                    quest.left -= 1
+                    quest.update()
+                    self.game.journal_group.update()
 
         if self.check_player_around(TILE_SIZE + 8, 4):
             self.attack()

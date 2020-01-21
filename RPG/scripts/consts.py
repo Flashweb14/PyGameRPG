@@ -64,6 +64,7 @@ USE_BUTTON = load_image('resources/sprites/gui/inventory/use_btn.png')
 DROP_BUTTON = load_image('resources/sprites/gui/inventory/drop_btn.png')
 
 GAME_FONT = pygame.font.Font('resources/fonts/font.ttf', 35)
+QUEST_DESCRIPTION_FONT = pygame.font.Font('resources/fonts/font.ttf', 25)
 
 IRON_CHEST = load_image('resources/sprites/game_objects/armor/iron_chest.png')
 IRON_SWORD = load_image('resources/sprites/game_objects/weapon/iron_sword.png')
@@ -80,6 +81,7 @@ CLOSE_BUTTON = load_image('resources/sprites/gui/error_close.png')
 RED_SHIRT_NPC = load_image('resources/sprites/npcs/redshirt/redshirt.png')
 
 QUEST_GUI = load_image('resources/sprites/gui/quest/quest_gui.png')
+QUEST_GUI_1 = load_image('resources/sprites/gui/quest/quest_gui.png')
 ACCEPT_BUTTON = load_image('resources/sprites/gui/quest/accept_btn.png')
 REJECT_BUTTON = load_image('resources/sprites/gui/quest/reject_btn.png')
 
