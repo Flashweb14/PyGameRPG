@@ -1,10 +1,10 @@
 import pygame
 from RPG.scripts.consts import INVENTORY_IMAGE
-from RPG.scripts.game_object import GameObject
+from RPG.scripts.game_objects.game_object import GameObject
 from RPG.scripts.gui.inventory.cell import Cell
 from RPG.scripts.gui.button import Button
-from RPG.scripts.armor import Armor
-from RPG.scripts.weapon import Weapon
+from RPG.scripts.game_objects.armor import Armor
+from RPG.scripts.game_objects.weapon import Weapon
 from RPG.scripts.gui.error import Error
 
 
@@ -22,7 +22,7 @@ class Inventory(GameObject):
         self.armor_slot = Cell(self.game, self, 'armor', 235, 645)
         self.ring_slot = Cell(self.game, self, 'ring', 330, 645)
         self.slots = [self.sword_slot, self.bow_slot, self.armor_slot, self.ring_slot]
-        self.drop_btn = Button(game, self.rect.x + 310, self.rect. y + 465, 'drop', game.gui_group)
+        self.drop_btn = Button(game, self.rect.x + 310, self.rect.y + 465, 'drop', game.gui_group)
         self.use_btn = Button(game, self.rect.x + 310, self.rect.y + 395, 'use', game.gui_group)
         self.selected_cell = None
         self.game.inventory_cell_group.update()
@@ -117,5 +117,3 @@ class Inventory(GameObject):
                 item.rect.x = self.game.player.rect.x - 75
                 item.rect.y = self.game.player.rect.y
         self.game.inventory_cell_group.update()
-
-# TODO Доработать систему выкидывания вещей

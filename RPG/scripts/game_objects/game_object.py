@@ -15,5 +15,3 @@ class GameObject(pygame.sprite.Sprite):
 
     def handle_event(self, event):
         pass
-
-

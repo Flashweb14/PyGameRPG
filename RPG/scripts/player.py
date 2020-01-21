@@ -4,8 +4,8 @@ from RPG.scripts.consts import TILE_SIZE, PLAYER_FRONT_IMAGE, PLAYER_FRONT_1_IMA
     PLAYER_BACK_IMAGE, PLAYER_BACK_1_IMAGE, PLAYER_BACK_2_IMAGE, PLAYER_RIGHT_IMAGE, PLAYER_RIGHT_1_IMAGE, \
     PLAYER_RIGHT_2_IMAGE, PLAYER_LEFT_IMAGE, PLAYER_LEFT_1_IMAGE, PLAYER_LEFT_2_IMAGE, PLAYER_FRONT_SWORD, \
     PLAYER_BACK_SWORD, PLAYER_RIGHT_SWORD, PLAYER_LEFT_SWORD
-from RPG.scripts.game_object import GameObject
-from RPG.scripts.arrow import Arrow
+from RPG.scripts.game_objects.game_object import GameObject
+from RPG.scripts.game_objects.arrow import Arrow
 
 pygame.init()
 

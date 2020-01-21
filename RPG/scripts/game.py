@@ -4,19 +4,19 @@ from RPG.scripts.tile import Tile
 from RPG.scripts.player import Player
 from RPG.scripts.camera import Camera
 from RPG.scripts.gui.health_bar import HealthBar
-from RPG.scripts.fire import Fire
-from RPG.scripts.red_slime import RedSlime
+from RPG.scripts.game_objects.fire import Fire
+from RPG.scripts.enemies.red_slime import RedSlime
 from RPG.scripts.gui.inventory.inventory import Inventory
-from RPG.scripts.food import Food
+from RPG.scripts.game_objects.food import Food
 from RPG.scripts.gui.arrows_ind import ArrowsIndicator
 from RPG.scripts.gui.armor_ind import ArmorIndicator
-from RPG.scripts.armor import Armor
-from RPG.scripts.weapon import Weapon
-from RPG.scripts.ring import Ring
-from RPG.scripts.chest import Chest
-from RPG.scripts.quest_npc import QuestNPC
+from RPG.scripts.game_objects.armor import Armor
+from RPG.scripts.game_objects.weapon import Weapon
+from RPG.scripts.game_objects.ring import Ring
+from RPG.scripts.game_objects.chest import Chest
+from RPG.scripts.quests.quest_npc import QuestNPC
 from RPG.scripts.consts import RED_SHIRT_NPC
-from RPG.scripts.kill_quest import KillQuest
+from RPG.scripts.quests.kill_quest import KillQuest
 from RPG.scripts.gui.journal import Journal
 
 pygame.init()
@@ -94,12 +94,6 @@ class Game:
         self.armor_ind = ArmorIndicator(self, 5, 70)
         self.inventory = Inventory(self)
         Food(self, 'meat', 9, 9)
-        Food(self, 'meat', 14, 10)
-        Food(self, 'meat', 14, 10)
-        Food(self, 'meat', 14, 10)
-        Food(self, 'meat', 14, 10)
-        Food(self, 'meat', 14, 10)
-        Food(self, 'meat', 14, 10)
         Food(self, 'meat', 14, 10)
         Armor(self, 2, 16, 8)
         Weapon(self, 'iron_sword', 10, 18, 8)

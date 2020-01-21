@@ -1,5 +1,5 @@
 import pygame
-from RPG.scripts.game_object import GameObject
+from RPG.scripts.game_objects.game_object import GameObject
 from RPG.scripts.consts import ARROWS_INDICATOR, GAME_FONT
 
 

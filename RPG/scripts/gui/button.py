@@ -1,4 +1,4 @@
-from RPG.scripts.game_object import GameObject
+from RPG.scripts.game_objects.game_object import GameObject
 from RPG.scripts.consts import USE_BUTTON, DROP_BUTTON, CLOSE_BUTTON, ACCEPT_BUTTON, REJECT_BUTTON
 
 

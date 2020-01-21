@@ -1,6 +1,6 @@
 import pygame
 from RPG.scripts.consts import TILE_IMAGES
-from RPG.scripts.game_object import GameObject
+from RPG.scripts.game_objects.game_object import GameObject
 
 pygame.init()
 
@@ -13,4 +13,3 @@ class Tile(GameObject):
         else:
             self.game.background_group.add(self)
             self.game.all_sprites.remove(self)
-

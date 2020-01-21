@@ -1,6 +1,6 @@
 import pygame
 from random import randint
-from RPG.scripts.game_object import GameObject
+from RPG.scripts.game_objects.game_object import GameObject
 from RPG.scripts.consts import ARROW_IMAGE_LEFT, ARROW_IMAGE_RIGHT, ARROW_IMAGE_DOWN, ARROW_IMAGE_UP, TILE_SIZE
 
 
@@ -46,6 +46,3 @@ class Arrow(GameObject):
                         enemy.angered = True
         else:
             self.first_time = False
-
-# TODO Пофиксить баг со стрельбой во время движения
-# TODO Добавить анимацию получения урона

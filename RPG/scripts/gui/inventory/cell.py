@@ -1,8 +1,7 @@
 import pygame
-from RPG.scripts.game_object import GameObject
-from RPG.scripts.consts import INVENTORY_CELL_IMAGE, INVENTORY_SELECTED_CELL_IMAGE, INVENTORY_CELL_IMAGE_1, \
-    INVENTORY_SELECTED_CELL_IMAGE_1, INVENTORY_ARMOR_IMAGE, INVENTORY_SWORD_IMAGE, INVENTORY_BOW_IMAGE, \
-    INVENTORY_RING_IMAGE
+from RPG.scripts.game_objects.game_object import GameObject
+from RPG.scripts.consts import INVENTORY_CELL_IMAGE, INVENTORY_ARMOR_IMAGE, INVENTORY_SWORD_IMAGE, \
+    INVENTORY_BOW_IMAGE, INVENTORY_RING_IMAGE
 from RPG.scripts.utilities import load_image
 
 

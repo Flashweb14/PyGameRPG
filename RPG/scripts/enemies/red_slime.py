@@ -1,8 +1,6 @@
-import pygame
-from RPG.scripts.base_enemy import BaseEnemy
-from RPG.scripts.utilities import load_image
-from RPG.scripts.consts import RED_SLIME_1, RED_SLIME_2, RED_SLIME_3, TILE_SIZE
-from RPG.scripts.hp_bar_npc import HealthBarNPC
+from RPG.scripts.enemies.base_enemy import BaseEnemy
+from RPG.scripts.consts import RED_SLIME_1, RED_SLIME_2, RED_SLIME_3
+from RPG.scripts.enemies.hp_bar_npc import HealthBarNPC
 
 
 class RedSlime(BaseEnemy):
@@ -20,5 +18,3 @@ class RedSlime(BaseEnemy):
             else:
                 self.image = self.animation_list[0]
         super().update()
-
-# TODO Пофиксить баг с хп баром

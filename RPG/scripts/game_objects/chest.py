@@ -1,4 +1,4 @@
-from RPG.scripts.game_object import GameObject
+from RPG.scripts.game_objects.game_object import GameObject
 from RPG.scripts.consts import CHEST_CLOSED, CHEST_OPENED
 
 
@@ -23,4 +23,3 @@ class Chest(GameObject):
     def close(self):
         self.image = CHEST_CLOSED
         self.is_opened = False
-

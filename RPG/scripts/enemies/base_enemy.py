@@ -1,7 +1,6 @@
 import pygame
-from RPG.scripts.game_object import GameObject
+from RPG.scripts.game_objects.game_object import GameObject
 from RPG.scripts.consts import TILE_SIZE
-from RPG.scripts.hp_bar_npc import HealthBarNPC
 
 
 class BaseEnemy(GameObject):
@@ -11,7 +10,6 @@ class BaseEnemy(GameObject):
         self.max_hp = max_hp
         self.hp = max_hp
         self.damage = damage
-        # self.hp_bar = HealthBarNPC(game, self)
         self.x = x * TILE_SIZE
         self.y = y * TILE_SIZE
         self.angered = False
@@ -64,4 +62,3 @@ class BaseEnemy(GameObject):
         if cur_time - self.last_attack_time >= 10 ** 3:
             self.game.player.hp -= self.damage - self.game.player.armor
             self.last_attack_time = cur_time
-
