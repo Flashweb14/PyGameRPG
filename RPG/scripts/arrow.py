@@ -25,6 +25,8 @@ class Arrow(GameObject):
 
     def update(self, *args):
         if not self.first_time:
+            if pygame.sprite.spritecollideany(self, self.game.npc_group):
+                self.game.all_sprites.remove(self)
             if pygame.sprite.spritecollideany(self, self.game.walls_group):
                 chance = randint(1, 101)
                 if chance in range(1, 21):

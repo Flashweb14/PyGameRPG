@@ -58,7 +58,7 @@ class Player(GameObject):
                     self.attack(self.speed_dict[self.direction])
             if event.key == pygame.K_e:
                 if self.arrows_left:
-                    if not self.last_shot_time or pygame.time.get_ticks() - self.last_shot_time >= 3 * 10**2:
+                    if not self.last_shot_time or pygame.time.get_ticks() - self.last_shot_time >= 3 * 10 ** 2:
                         self.shoot()
                         self.last_shot_time = pygame.time.get_ticks()
             if event.key in self.motion_dict:
@@ -96,6 +96,9 @@ class Player(GameObject):
                             chest.open()
                         else:
                             chest.close()
+                for npc in self.game.npc_group:
+                    if pygame.sprite.collide_rect(check_sprite, npc):
+                        npc.give_quest()
             if event.key in self.motion_dict:
                 self.direction = self.motion_dict[event.key]
                 self.motion.remove(self.direction)
@@ -141,7 +144,8 @@ class Player(GameObject):
                 check_sprite.rect.x = self.rect.x + int(self.speed_dict[direction][0] / self.game.FPS)
                 check_sprite.rect.y = self.rect.y + int(self.speed_dict[direction][1] / self.game.FPS)
                 if (pygame.sprite.spritecollideany(check_sprite, self.game.walls_group) or
-                        pygame.sprite.spritecollideany(check_sprite, self.game.enemy_group)):
+                        pygame.sprite.spritecollideany(check_sprite, self.game.enemy_group)
+                        or pygame.sprite.spritecollideany(check_sprite, self.game.npc_group)):
                     self.x -= self.speed_dict[direction][0] / self.game.FPS
                     self.y -= self.speed_dict[direction][1] / self.game.FPS
 

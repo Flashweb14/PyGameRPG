@@ -77,3 +77,5 @@ CHEST_GUI = load_image('resources/sprites/gui/chest_gui.png')
 OVERWEIGHT_ERROR = load_image('resources/sprites/gui/full_error.png')
 CLOSE_BUTTON = load_image('resources/sprites/gui/error_close.png')
 
+RED_SHIRT_NPC = load_image('resources/sprites/npcs/redshirt/redshirt.png')
+

@@ -14,6 +14,8 @@ from RPG.scripts.armor import Armor
 from RPG.scripts.weapon import Weapon
 from RPG.scripts.ring import Ring
 from RPG.scripts.chest import Chest
+from RPG.scripts.quest_npc import QuestNPC
+from RPG.scripts.consts import RED_SHIRT_NPC
 
 pygame.init()
 
@@ -21,7 +23,7 @@ pygame.init()
 class Game:
     def __init__(self):
         self.size = self.width, self.height = 1920, 1080
-        self.screen = pygame.display.set_mode(self.size, pygame.FULLSCREEN)
+        self.screen = pygame.display.set_mode(self.size)
         self.FPS = 60
         self.clock = pygame.time.Clock()
 
@@ -43,6 +45,7 @@ class Game:
         self.pickable_objects = pygame.sprite.Group()
         self.chests_group = pygame.sprite.Group()
         self.errors_group = pygame.sprite.Group()
+        self.npc_group = pygame.sprite.Group()
 
         self.groups = [self.all_sprites, self.player_group, self.walls_group, self.background_group,
                        self.gui_group, self.harm_sprites, self.enemy_group]
@@ -98,6 +101,7 @@ class Game:
         Weapon(self, 'wooden_bow', 7, 20, 8)
         Ring(self, 'golden_ring', 22, 8)
         Chest(self, Armor(self, 2, 16, 8), 24, 8)
+        QuestNPC(self, RED_SHIRT_NPC, 26, 10)
 
     def start_new_game(self, level):
         self.generate_level(level)
