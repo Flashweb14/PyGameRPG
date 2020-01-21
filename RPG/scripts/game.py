@@ -26,7 +26,6 @@ class Game:
         self.screen = pygame.display.set_mode(self.size)
         self.FPS = 60
         self.clock = pygame.time.Clock()
-
         pygame.mouse.set_visible(False)
 
         self.player = None
@@ -46,6 +45,7 @@ class Game:
         self.chests_group = pygame.sprite.Group()
         self.errors_group = pygame.sprite.Group()
         self.npc_group = pygame.sprite.Group()
+        self.quest_gui_group = pygame.sprite.Group()
 
         self.groups = [self.all_sprites, self.player_group, self.walls_group, self.background_group,
                        self.gui_group, self.harm_sprites, self.enemy_group]
@@ -57,7 +57,6 @@ class Game:
         self.count = 0
 
         self.inventory_opened = False
-        self.has_error = False
 
     @staticmethod
     def terminate():

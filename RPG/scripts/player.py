@@ -84,7 +84,6 @@ class Player(GameObject):
                     pygame.mouse.set_visible(False)
                 else:
                     self.game.inventory_opened = True
-                    pygame.mouse.set_visible(True)
             if event.key == pygame.K_f:
                 check_sprite = pygame.sprite.Sprite()
                 check_sprite.rect = pygame.Rect((0, 0), (70, 70))

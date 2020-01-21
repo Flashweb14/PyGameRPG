@@ -22,8 +22,8 @@ class Inventory(GameObject):
         self.armor_slot = Cell(self.game, self, 'armor', 235, 645)
         self.ring_slot = Cell(self.game, self, 'ring', 330, 645)
         self.slots = [self.sword_slot, self.bow_slot, self.armor_slot, self.ring_slot]
-        self.drop_btn = Button(game, self.rect.x + 310, self.rect. y + 465, 'drop')
-        self.use_btn = Button(game, self.rect.x + 310, self.rect.y + 395, 'use')
+        self.drop_btn = Button(game, self.rect.x + 310, self.rect. y + 465, 'drop', game.gui_group)
+        self.use_btn = Button(game, self.rect.x + 310, self.rect.y + 395, 'use', game.gui_group)
         self.selected_cell = None
         self.game.inventory_cell_group.update()
 
@@ -61,14 +61,11 @@ class Inventory(GameObject):
             if self.use_btn.rect.collidepoint(event.pos):
                 if self.selected_cell:
                     self.selected_cell.item.use()
-                    if isinstance(self.selected_cell.item, Armor):
-                        print('a')
-                    else:
-                        for i in range(len(self.cells)):
-                            if self.cells[i] == self.selected_cell:
-                                self.cells[i].item = None
-                                self.cells[i].selected = False
-                                self.selected_cell = None
+                    for i in range(len(self.cells)):
+                        if self.cells[i] == self.selected_cell:
+                            self.cells[i].item = None
+                            self.cells[i].selected = False
+                            self.selected_cell = None
                     self.game.inventory_cell_group.update()
 
     def add_item(self, obj):
@@ -81,8 +78,6 @@ class Inventory(GameObject):
         self.game.inventory_cell_group.update()
         if not has_empty:
             error = Error(self.game, 'overweight')
-            error.rect.x = 1350
-            error.rect.y = 10
             self.game.has_error = True
             return False
         return True

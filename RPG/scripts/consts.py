@@ -79,3 +79,7 @@ CLOSE_BUTTON = load_image('resources/sprites/gui/error_close.png')
 
 RED_SHIRT_NPC = load_image('resources/sprites/npcs/redshirt/redshirt.png')
 
+QUEST_GUI = load_image('resources/sprites/gui/quest/quest_gui.png')
+ACCEPT_BUTTON = load_image('resources/sprites/gui/quest/accept_btn.png')
+REJECT_BUTTON = load_image('resources/sprites/gui/quest/reject_btn.png')
+
