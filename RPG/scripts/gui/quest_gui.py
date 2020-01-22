@@ -5,11 +5,12 @@ from RPG.scripts.gui.button import Button
 
 
 class QuestGui(GameObject):
-    def __init__(self, game, quest):
+    def __init__(self, game, quest, npc):
         super().__init__(game, QUEST_GUI, 870, 200, game.quest_gui_group)
         self.rect.x = 870
         self.rect.y = 200
         self.quest = quest
+        self.npc = npc
         self.accept_btn = Button(game, self.rect.x + 70, self.rect.y + 490, 'accept', game.quest_gui_group)
         self.reject_btn = Button(game, self.rect.x + 260, self.rect.y + 490, 'reject', game.quest_gui_group)
         description_y = 50
@@ -33,6 +34,8 @@ class QuestGui(GameObject):
                         self.game.journal.update()
                         for sprite in self.game.quest_gui_group:
                             self.game.quest_gui_group.remove(sprite)
+                        self.npc.quest = None
+                        pygame.mouse.set_visible(False)
                 if self.reject_btn.rect.collidepoint(event.pos):
                     for sprite in self.game.quest_gui_group:
                         self.game.quest_gui_group.remove(sprite)

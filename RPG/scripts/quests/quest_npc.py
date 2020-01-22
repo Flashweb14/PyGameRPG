@@ -9,5 +9,4 @@ class QuestNPC(GameObject):
 
     def give_quest(self):
         if self.quest:
-            QuestGui(self.game, self.quest)
-            self.quest = None
+            QuestGui(self.game, self.quest, self)

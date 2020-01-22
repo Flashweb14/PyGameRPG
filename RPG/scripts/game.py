@@ -25,7 +25,7 @@ pygame.init()
 class Game:
     def __init__(self):
         self.size = self.width, self.height = 1920, 1080
-        self.screen = pygame.display.set_mode(self.size)
+        self.screen = pygame.display.set_mode(self.size, pygame.FULLSCREEN)
         self.FPS = 60
         self.clock = pygame.time.Clock()
         pygame.mouse.set_visible(False)
@@ -94,7 +94,8 @@ class Game:
         self.armor_ind = ArmorIndicator(self, 5, 70)
         self.inventory = Inventory(self)
         Food(self, 'meat', 9, 9)
-        Food(self, 'meat', 14, 10)
+        for i in range(10):
+            Food(self, 'meat', 14, 10)
         Armor(self, 2, 16, 8)
         Weapon(self, 'iron_sword', 10, 18, 8)
         Weapon(self, 'wooden_bow', 7, 20, 8)
