@@ -2,11 +2,12 @@ import pygame
 from RPG.scripts.game_objects.game_object import GameObject
 from RPG.scripts.consts import QUEST_GUI, QUEST_DESCRIPTION_FONT
 from RPG.scripts.gui.button import Button
+from RPG.scripts.utilities import load_image
 
 
 class QuestGui(GameObject):
     def __init__(self, game, quest, npc):
-        super().__init__(game, QUEST_GUI, 870, 200, game.quest_gui_group)
+        super().__init__(game, load_image('resources/sprites/gui/quest/quest_gui.png'), 870, 200, game.quest_gui_group)
         self.rect.x = 870
         self.rect.y = 200
         self.quest = quest

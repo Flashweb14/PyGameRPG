@@ -25,7 +25,7 @@ pygame.init()
 class Game:
     def __init__(self):
         self.size = self.width, self.height = 1920, 1080
-        self.screen = pygame.display.set_mode(self.size, pygame.FULLSCREEN)
+        self.screen = pygame.display.set_mode(self.size)
         self.FPS = 60
         self.clock = pygame.time.Clock()
         pygame.mouse.set_visible(False)
@@ -107,18 +107,18 @@ class Game:
                                                                         'appeared in the',
                                                                         'nearest forrest',
                                                                         'can you help us?',
-                                                                        'kill 10 slimes'],
+                                                                        'kill 2 slimes'],
                                                 'Red Slime',
                                                 Weapon(self, 'iron_sword', -500, -500, 8), 2), 15, 7)
         QuestNPC(self, RED_SHIRT_NPC, KillQuest(self, 'Village In Danger', ['Hello, stranger!',
-                                                                            'Our village in danger,',
-                                                                            'group of slimes',
-                                                                            'appeared in the',
-                                                                            'nearest forrest',
-                                                                            'can you help us?',
-                                                                            'kill 10 slimes'],
+                                                                            'Can you help',
+                                                                            'our village?',
+                                                                            'Please,',
+                                                                            'kill 1 slime'],
                                                 'Red Slime',
                                                 Armor(self, 'iron_chest', -500, -500), 1), 22, 15)
 
     def start_new_game(self, level):
         self.generate_level(level)
+
+# TODO Поправить баг с хп при первом запуске
