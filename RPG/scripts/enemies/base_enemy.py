@@ -1,6 +1,7 @@
 import pygame
 from RPG.scripts.game_objects.game_object import GameObject
 from RPG.scripts.consts import TILE_SIZE
+from RPG.scripts.enemies.hp_bar_npc import HealthBarNPC
 
 
 class BaseEnemy(GameObject):
@@ -15,6 +16,7 @@ class BaseEnemy(GameObject):
         self.angered = False
         self.last_attack_time = False
         self.name = name
+        self.hp_bar = HealthBarNPC(game, self)
 
     def update(self):
         if self.hp <= 0:

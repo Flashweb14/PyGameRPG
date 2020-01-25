@@ -1,11 +1,11 @@
 import pygame
 from RPG.scripts.game_objects.game_object import GameObject
-from RPG.scripts.consts import HP_BAR_NPC
+from RPG.scripts.utilities import load_image
 
 
 class HealthBarNPC(GameObject):
     def __init__(self, game, npc):
-        super().__init__(game, HP_BAR_NPC, npc.rect.x, npc.rect.y - 20, game.all_sprites)
+        super().__init__(game, load_image('resources/sprites/gui/npc_hp_bar.png'), npc.rect.x, npc.rect.y - 20, game.all_sprites)
         self.npc = npc
 
     def update(self):
