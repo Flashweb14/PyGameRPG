@@ -17,23 +17,27 @@ class BaseEnemy(GameObject):
         self.last_attack_time = False
         self.name = name
         self.hp_bar = HealthBarNPC(game, self)
+        self.first_time = True
 
     def update(self):
-        if self.hp <= 0:
-            self.die()
-            for quest in self.game.player.quests:
-                if quest.enemy == self.name:
-                    quest.left -= 1
-                    quest.update()
-                    self.game.journal_group.update()
+        if not self.first_time:
+            if self.hp <= 0:
+                self.die()
+                for quest in self.game.player.quests:
+                    if quest.enemy == self.name:
+                        quest.left -= 1
+                        quest.update()
+                        self.game.journal_group.update()
 
-        if self.check_player_around(TILE_SIZE + 8, 4):
-            self.attack()
-        elif self.check_player_around(TILE_SIZE * 6, TILE_SIZE * 3) and not self.angered:
-            self.angered = True
+            if self.check_player_around(TILE_SIZE + 8, 4):
+                self.attack()
+            elif self.check_player_around(TILE_SIZE * 6, TILE_SIZE * 3) and not self.angered:
+                self.angered = True
+            else:
+                if self.angered:
+                    self.move()
         else:
-            if self.angered:
-                self.move()
+            self.first_time = False
 
     def check_player_around(self, rect_size, delta):
         check_sprite = pygame.sprite.Sprite()
@@ -62,5 +66,5 @@ class BaseEnemy(GameObject):
     def attack(self):
         cur_time = pygame.time.get_ticks()
         if cur_time - self.last_attack_time >= 10 ** 3:
-            self.game.player.hp -= self.damage - self.game.player.armor
+            self.game.player.take_damage(self.damage)
             self.last_attack_time = cur_time

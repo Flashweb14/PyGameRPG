@@ -12,7 +12,7 @@ class HealthBar(GameObject):
 
     def update(self, *args):
         pygame.draw.rect(self.image, (0, 0, 0, 0), (54, 12, 210, 30))
-        if self.game.player.hp >= 0:
+        if self.game.player.hp > 0:
             pygame.draw.rect(self.image, (239, 39, 39),
                              (54, 12, 210 // self.game.player.max_hp * self.game.player.hp +
                               210 % self.game.player.max_hp, 24))

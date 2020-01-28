@@ -176,3 +176,7 @@ class Player(GameObject):
             Arrow(self.game, self.motion[0])
         else:
             Arrow(self.game, self.direction)
+
+    def take_damage(self, damage):
+        if not self.first_time:
+            self.hp -= damage - self.armor
