@@ -25,10 +25,9 @@ pygame.init()
 class Game:
     def __init__(self):
         self.size = self.width, self.height = 1920, 1080
-        self.screen = pygame.display.set_mode(self.size)
+        self.screen = pygame.display.set_mode(self.size, pygame.FULLSCREEN)
         self.FPS = 60
         self.clock = pygame.time.Clock()
-        pygame.mouse.set_visible(False)
 
         self.player = None
         self.inventory = None
@@ -50,6 +49,7 @@ class Game:
         self.npc_group = pygame.sprite.Group()
         self.quest_gui_group = pygame.sprite.Group()
         self.journal_group = pygame.sprite.Group()
+        self.main_menu_group = pygame.sprite.Group()
 
         self.groups = [self.all_sprites, self.player_group, self.walls_group, self.background_group,
                        self.gui_group, self.harm_sprites, self.enemy_group]
@@ -119,6 +119,7 @@ class Game:
                                                 Armor(self, 'iron_chest', -500, -500), 1), 22, 15)
 
     def start_new_game(self, level):
+        self.__init__()
         self.generate_level(level)
 
 # TODO Поправить баг с хп при первом запуске

@@ -1,5 +1,5 @@
 import pygame
-from RPG.scripts.utilities import load_image
+from RPG.scripts.utilities import load_image, load_level
 
 pygame.init()
 
@@ -84,3 +84,11 @@ QUEST_GUI = load_image('resources/sprites/gui/quest/quest_gui.png')
 QUEST_GUI_1 = load_image('resources/sprites/gui/quest/quest_gui.png')
 ACCEPT_BUTTON = load_image('resources/sprites/gui/quest/accept_btn.png')
 REJECT_BUTTON = load_image('resources/sprites/gui/quest/reject_btn.png')
+
+NEW_GAME_BTN = load_image('resources/sprites/gui/menu/new_game_btn.png')
+EXIT_BTN = load_image('resources/sprites/gui/menu/exit_btn.png')
+CONTINUE_BTN = load_image('resources/sprites/gui/menu/continue_btn.png')
+MAIN_MENU_BTN = load_image('resources/sprites/gui/menu/main_menu_btn.png')
+
+LEVEL = load_level('resources/level_maps/level.txt')
+
