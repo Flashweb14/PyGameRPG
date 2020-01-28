@@ -5,12 +5,13 @@ pygame.init()
 
 def main_process(game):
     while True:
+        while game.game_menu_opened:
+            for event in pygame.event.get():
+                game.game_menu.handle_event(event)
         for event in pygame.event.get():
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_h:
-                    game.player.hp -= 1
+            if event.type == pygame.KEYUP:
                 if event.key == pygame.K_ESCAPE:
-                    game.terminate()
+                    game.game_menu_opened = True
             if event.type == pygame.QUIT:
                 game.terminate()
             game.player.handle_event(event)
@@ -20,7 +21,7 @@ def main_process(game):
                 quest_gui.handle_event(event)
             for error in game.errors_group:
                 error.handle_event(event)
-        if game.inventory_opened or game.quest_gui_group or game.errors_group:
+        if game.inventory_opened or game.quest_gui_group or game.errors_group or game.game_menu_opened:
             pygame.mouse.set_visible(True)
         game.player.move()
         game.all_sprites.update()
@@ -44,6 +45,8 @@ def main_process(game):
         if game.journal_opened:
             game.journal_group.draw(game.screen)
         game.quest_gui_group.draw(game.screen)
+        if game.game_menu_opened:
+            game.game_menu_group.draw(game.screen)
         game.clock.tick(game.FPS)
         if game.count < game.FPS:
             game.count += 1
