@@ -119,7 +119,10 @@ class Player(GameObject):
                 if pygame.sprite.collide_rect(self, sprite):
                     self.hp -= sprite.damage / self.game.FPS
             if self.hp <= 0:
-                self.game.terminate()
+                self.game.all_sprites.remove(self)
+                self.game.player_group.remove(self)
+                pygame.mouse.set_visible(True)
+                self.game.over = True
             for obj in self.game.pickable_objects:
                 if pygame.sprite.collide_rect(self, obj):
                     if self.game.inventory.add_item(obj):

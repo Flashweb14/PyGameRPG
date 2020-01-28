@@ -18,7 +18,8 @@ from RPG.scripts.quests.quest_npc import QuestNPC
 from RPG.scripts.consts import RED_SHIRT_NPC
 from RPG.scripts.quests.kill_quest import KillQuest
 from RPG.scripts.gui.journal import Journal
-from RPG.scripts.gui.game_menu import GameMenu
+from RPG.scripts.gui.game_menus.game_menu import GameMenu
+from RPG.scripts.gui.game_menus.death_menu import DeathMenu
 
 pygame.init()
 
@@ -52,6 +53,7 @@ class Game:
         self.journal_group = pygame.sprite.Group()
         self.main_menu_group = pygame.sprite.Group()
         self.game_menu_group = pygame.sprite.Group()
+        self.death_menu_group = pygame.sprite.Group()
 
         self.groups = [self.all_sprites, self.player_group, self.walls_group, self.background_group,
                        self.gui_group, self.harm_sprites, self.enemy_group]
@@ -60,6 +62,7 @@ class Game:
         self.arrows_ind = None
         self.armor_ind = None
         self.game_menu = None
+        self.death_menu = None
 
         self.count = 0
 
@@ -67,6 +70,8 @@ class Game:
         self.journal_opened = False
 
         self.game_menu_opened = False
+
+        self.over = False
 
     @staticmethod
     def terminate():
@@ -107,6 +112,7 @@ class Game:
         Ring(self, 'golden_ring', 22, 8)
         Chest(self, Armor(self, 2, 16, 8), 24, 8)
         self.game_menu = GameMenu(self)
+        self.death_menu = DeathMenu(self)
         QuestNPC(self, RED_SHIRT_NPC, KillQuest(self, 'Slime Killing', ['Hello, stranger!',
                                                                         'Our village in danger,',
                                                                         'group of slimes',

@@ -8,6 +8,9 @@ def main_process(game):
         while game.game_menu_opened:
             for event in pygame.event.get():
                 game.game_menu.handle_event(event)
+        while game.over:
+            for event in pygame.event.get():
+                game.death_menu.handle_event(event)
         for event in pygame.event.get():
             if event.type == pygame.KEYUP:
                 if event.key == pygame.K_ESCAPE:
@@ -47,6 +50,8 @@ def main_process(game):
         game.quest_gui_group.draw(game.screen)
         if game.game_menu_opened:
             game.game_menu_group.draw(game.screen)
+        if game.over:
+            game.death_menu_group.draw(game.screen)
         game.clock.tick(game.FPS)
         if game.count < game.FPS:
             game.count += 1
