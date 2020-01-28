@@ -36,6 +36,7 @@ class Inventory(GameObject):
                 for cell in self.cells:
                     if cell.rect.collidepoint(event.pos):
                         if cell.item:
+                            cell.on_click()
                             for i in range(len(self.cells)):
                                 if self.cells[i].selected:
                                     self.cells[i].selected = False
@@ -47,6 +48,7 @@ class Inventory(GameObject):
                 for slot in self.slots:
                     if slot.rect.collidepoint(event.pos):
                         if slot.item:
+                            slot.on_click()
                             for i in range(len(self.cells)):
                                 if self.cells[i].selected:
                                     self.cells[i].selected = False
@@ -57,8 +59,10 @@ class Inventory(GameObject):
                             self.selected_cell = slot
                 self.game.inventory_cell_group.update()
             if self.drop_btn.rect.collidepoint(event.pos):
+                self.drop_btn.on_click()
                 self.drop_item()
             if self.use_btn.rect.collidepoint(event.pos):
+                self.use_btn.on_click()
                 if self.selected_cell:
                     self.selected_cell.item.use()
                     for i in range(len(self.cells)):

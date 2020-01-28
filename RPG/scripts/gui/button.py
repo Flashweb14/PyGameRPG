@@ -1,6 +1,7 @@
 from RPG.scripts.game_objects.game_object import GameObject
 from RPG.scripts.consts import USE_BUTTON, DROP_BUTTON, CLOSE_BUTTON, ACCEPT_BUTTON, REJECT_BUTTON, NEW_GAME_BTN, \
     EXIT_BTN, CONTINUE_BTN, MAIN_MENU_BTN
+from RPG.scripts.consts import CLICK_SOUND
 
 
 class Button(GameObject):
@@ -11,7 +12,8 @@ class Button(GameObject):
         super().__init__(game, btns_dict[type], x, y, *groups)
         self.rect.x = x
         self.rect.y = y
+        self.sound = CLICK_SOUND
 
     def on_click(self):
-        print('click')
+        self.sound.play()
 

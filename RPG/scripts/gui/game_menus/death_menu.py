@@ -13,6 +13,8 @@ class DeathMenu:
         if event.type == pygame.MOUSEBUTTONUP:
             if event.button == pygame.BUTTON_LEFT:
                 if self.exit_btn.rect.collidepoint(event.pos):
+                    self.main_menu_btn.on_click()
                     self.game.terminate()
                 if self.main_menu_btn.rect.collidepoint(event.pos):
+                    self.main_menu_btn.on_click()
                     main_menu_process(self.game)

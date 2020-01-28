@@ -13,9 +13,11 @@ class GameMenu:
         if event.type == pygame.MOUSEBUTTONUP:
             if event.button == pygame.BUTTON_LEFT:
                 if self.continue_btn.rect.collidepoint(event.pos):
+                    self.continue_btn.on_click()
                     self.game.game_menu_opened = False
                     pygame.mouse.set_visible(False)
                 if self.main_menu_btn.rect.collidepoint(event.pos):
+                    self.main_menu_btn.on_click()
                     main_menu_process(self.game)
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_ESCAPE:

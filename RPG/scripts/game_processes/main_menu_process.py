@@ -19,11 +19,13 @@ def main_menu_process(game):
             if event.type == pygame.MOUSEBUTTONUP:
                 if event.button == pygame.BUTTON_LEFT:
                     if new_game_btn.rect.collidepoint(event.pos):
+                        new_game_btn.on_click()
                         is_running = False
                         pygame.mouse.set_visible(False)
                         game.start_new_game(LEVEL)
                         main_process(game)
                     if exit_btn.rect.collidepoint(event.pos):
+                        exit_btn.on_click()
                         game.terminate()
         screen.fill((48, 52, 109))
         game.main_menu_group.draw(game.screen)

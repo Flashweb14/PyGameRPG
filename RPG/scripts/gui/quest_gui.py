@@ -30,6 +30,7 @@ class QuestGui(GameObject):
         if event.type == pygame.MOUSEBUTTONUP:
             if event.button == pygame.BUTTON_LEFT:
                 if self.accept_btn.rect.collidepoint(event.pos):
+                    self.accept_btn.on_click()
                     if self.quest not in self.game.player.quests:
                         self.game.player.quests.append(self.quest)
                         self.game.journal.update()
@@ -38,6 +39,7 @@ class QuestGui(GameObject):
                         self.npc.quest = None
                         pygame.mouse.set_visible(False)
                 if self.reject_btn.rect.collidepoint(event.pos):
+                    self.reject_btn.on_click()
                     for sprite in self.game.quest_gui_group:
                         self.game.quest_gui_group.remove(sprite)
                     pygame.mouse.set_visible(False)

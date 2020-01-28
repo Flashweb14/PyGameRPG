@@ -1,7 +1,7 @@
 import pygame
 from RPG.scripts.game_objects.game_object import GameObject
 from RPG.scripts.consts import INVENTORY_CELL_IMAGE, INVENTORY_ARMOR_IMAGE, INVENTORY_SWORD_IMAGE, \
-    INVENTORY_BOW_IMAGE, INVENTORY_RING_IMAGE
+    INVENTORY_BOW_IMAGE, INVENTORY_RING_IMAGE, CLICK_SOUND
 from RPG.scripts.utilities import load_image
 
 
@@ -17,6 +17,7 @@ class Cell(GameObject):
         self.type = type
         self.slots_dict = {'sword': INVENTORY_SWORD_IMAGE, 'bow': INVENTORY_BOW_IMAGE, 'armor': INVENTORY_ARMOR_IMAGE,
                            'ring': INVENTORY_RING_IMAGE}
+        self.sound = CLICK_SOUND
 
     def update(self):
         if not self.item:
@@ -32,3 +33,6 @@ class Cell(GameObject):
             self.image.blit(
                 pygame.transform.scale(self.item.image, (int(self.item.rect.w * 1.25), int(self.item.rect.h * 1.25))),
                 (((90 - self.item.rect.w * 1.25) // 2), ((90 - self.item.rect.h * 1.25) // 2)))
+
+    def on_click(self):
+        self.sound.play()

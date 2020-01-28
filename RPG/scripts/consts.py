@@ -92,3 +92,5 @@ MAIN_MENU_BTN = load_image('resources/sprites/gui/menu/main_menu_btn.png')
 
 LEVEL = load_level('resources/level_maps/level.txt')
 
+CLICK_SOUND = pygame.mixer.Sound('resources/audio/sounds/menu_click.ogg')
+
