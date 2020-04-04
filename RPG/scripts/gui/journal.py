@@ -1,5 +1,5 @@
 import pygame
-from RPG.scripts.consts import QUEST_DESCRIPTION_FONT
+from scripts.consts import QUEST_DESCRIPTION_FONT
 
 
 class Journal(pygame.sprite.Sprite):

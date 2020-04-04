@@ -1,5 +1,5 @@
-from RPG.scripts.game_objects.game_object import GameObject
-from RPG.scripts.consts import GOLDEN_RING
+from scripts.game_objects.game_object import GameObject
+from scripts.consts import GOLDEN_RING
 
 
 class Ring(GameObject):

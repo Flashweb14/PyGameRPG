@@ -1,8 +1,8 @@
 import pygame
-from RPG.scripts.game_objects.game_object import GameObject
-from RPG.scripts.consts import QUEST_GUI, QUEST_DESCRIPTION_FONT
-from RPG.scripts.gui.button import Button
-from RPG.scripts.utilities import load_image
+from scripts.game_objects.game_object import GameObject
+from scripts.consts import QUEST_GUI, QUEST_DESCRIPTION_FONT
+from scripts.gui.button import Button
+from scripts.utilities import load_image
 
 
 class QuestGui(GameObject):

@@ -1,11 +1,11 @@
 import pygame
-from RPG.scripts.consts import INVENTORY_IMAGE
-from RPG.scripts.game_objects.game_object import GameObject
-from RPG.scripts.gui.inventory.cell import Cell
-from RPG.scripts.gui.button import Button
-from RPG.scripts.game_objects.armor import Armor
-from RPG.scripts.game_objects.weapon import Weapon
-from RPG.scripts.gui.error import Error
+from scripts.consts import INVENTORY_IMAGE
+from scripts.game_objects.game_object import GameObject
+from scripts.gui.inventory.cell import Cell
+from scripts.gui.button import Button
+from scripts.game_objects.armor import Armor
+from scripts.game_objects.weapon import Weapon
+from scripts.gui.error import Error
 
 
 class Inventory(GameObject):

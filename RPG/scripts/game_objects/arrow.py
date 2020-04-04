@@ -1,7 +1,7 @@
 import pygame
 from random import randint
-from RPG.scripts.game_objects.game_object import GameObject
-from RPG.scripts.consts import ARROW_IMAGE_LEFT, ARROW_IMAGE_RIGHT, ARROW_IMAGE_DOWN, ARROW_IMAGE_UP, TILE_SIZE
+from scripts.game_objects.game_object import GameObject
+from scripts.consts import ARROW_IMAGE_LEFT, ARROW_IMAGE_RIGHT, ARROW_IMAGE_DOWN, ARROW_IMAGE_UP, TILE_SIZE
 
 
 class Arrow(GameObject):

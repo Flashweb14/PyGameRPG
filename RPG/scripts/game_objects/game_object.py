@@ -1,5 +1,5 @@
 import pygame
-from RPG.scripts.consts import TILE_SIZE
+from scripts.consts import TILE_SIZE
 
 pygame.init()
 

@@ -1,6 +1,6 @@
 import pygame
-from RPG.scripts.game_objects.game_object import GameObject
-from RPG.scripts.utilities import load_image
+from scripts.game_objects.game_object import GameObject
+from scripts.utilities import load_image
 
 
 class HealthBarNPC(GameObject):

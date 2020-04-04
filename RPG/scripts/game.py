@@ -1,25 +1,25 @@
 import sys
 import pygame
-from RPG.scripts.tile import Tile
-from RPG.scripts.player import Player
-from RPG.scripts.camera import Camera
-from RPG.scripts.gui.health_bar import HealthBar
-from RPG.scripts.game_objects.fire import Fire
-from RPG.scripts.enemies.red_slime import RedSlime
-from RPG.scripts.gui.inventory.inventory import Inventory
-from RPG.scripts.game_objects.food import Food
-from RPG.scripts.gui.arrows_ind import ArrowsIndicator
-from RPG.scripts.gui.armor_ind import ArmorIndicator
-from RPG.scripts.game_objects.armor import Armor
-from RPG.scripts.game_objects.weapon import Weapon
-from RPG.scripts.game_objects.ring import Ring
-from RPG.scripts.game_objects.chest import Chest
-from RPG.scripts.quests.quest_npc import QuestNPC
-from RPG.scripts.consts import RED_SHIRT_NPC
-from RPG.scripts.quests.kill_quest import KillQuest
-from RPG.scripts.gui.journal import Journal
-from RPG.scripts.gui.game_menus.game_menu import GameMenu
-from RPG.scripts.gui.game_menus.death_menu import DeathMenu
+from scripts.tile import Tile
+from scripts.player import Player
+from scripts.camera import Camera
+from scripts.gui.health_bar import HealthBar
+from scripts.game_objects.fire import Fire
+from scripts.enemies.red_slime import RedSlime
+from scripts.gui.inventory.inventory import Inventory
+from scripts.game_objects.food import Food
+from scripts.gui.arrows_ind import ArrowsIndicator
+from scripts.gui.armor_ind import ArmorIndicator
+from scripts.game_objects.armor import Armor
+from scripts.game_objects.weapon import Weapon
+from scripts.game_objects.ring import Ring
+from scripts.game_objects.chest import Chest
+from scripts.quests.quest_npc import QuestNPC
+from scripts.consts import RED_SHIRT_NPC
+from scripts.quests.kill_quest import KillQuest
+from scripts.gui.journal import Journal
+from scripts.gui.game_menus.game_menu import GameMenu
+from scripts.gui.game_menus.death_menu import DeathMenu
 
 pygame.init()
 

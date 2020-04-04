@@ -1,7 +1,7 @@
 import pygame
-from RPG.scripts.game_objects.game_object import GameObject
-from RPG.scripts.consts import OVERWEIGHT_ERROR, TILE_SIZE
-from RPG.scripts.gui.button import Button
+from scripts.game_objects.game_object import GameObject
+from scripts.consts import OVERWEIGHT_ERROR, TILE_SIZE
+from scripts.gui.button import Button
 
 
 class Error(GameObject):

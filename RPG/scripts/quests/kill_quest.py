@@ -1,4 +1,4 @@
-from RPG.scripts.quests.base_quest import BaseQuest
+from scripts.quests.base_quest import BaseQuest
 
 
 class KillQuest(BaseQuest):

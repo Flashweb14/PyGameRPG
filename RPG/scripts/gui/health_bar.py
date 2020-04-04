@@ -1,5 +1,5 @@
-from RPG.scripts.game_objects.game_object import GameObject
-from RPG.scripts.consts import HP_BAR_0, HP_BAR_1
+from scripts.game_objects.game_object import GameObject
+from scripts.consts import HP_BAR_0, HP_BAR_1
 import pygame
 
 

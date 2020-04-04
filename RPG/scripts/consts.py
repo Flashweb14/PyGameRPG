@@ -1,5 +1,5 @@
 import pygame
-from RPG.scripts.utilities import load_image, load_level
+from scripts.utilities import load_image, load_level
 
 pygame.init()
 

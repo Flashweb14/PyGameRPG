@@ -1,7 +1,7 @@
 import pygame
-from RPG.scripts.game_objects.game_object import GameObject
-from RPG.scripts.consts import TILE_SIZE
-from RPG.scripts.enemies.hp_bar_npc import HealthBarNPC
+from scripts.game_objects.game_object import GameObject
+from scripts.consts import TILE_SIZE
+from scripts.enemies.hp_bar_npc import HealthBarNPC
 
 
 class BaseEnemy(GameObject):

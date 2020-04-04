@@ -1,4 +1,4 @@
-from RPG.scripts.consts import TILE_SIZE
+from scripts.consts import TILE_SIZE
 
 
 class BaseQuest:

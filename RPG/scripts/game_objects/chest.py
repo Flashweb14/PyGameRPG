@@ -1,5 +1,5 @@
-from RPG.scripts.game_objects.game_object import GameObject
-from RPG.scripts.consts import CHEST_CLOSED, CHEST_OPENED
+from scripts.game_objects.game_object import GameObject
+from scripts.consts import CHEST_CLOSED, CHEST_OPENED
 
 
 class Chest(GameObject):

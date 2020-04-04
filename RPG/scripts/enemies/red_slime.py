@@ -1,5 +1,5 @@
-from RPG.scripts.enemies.base_enemy import BaseEnemy
-from RPG.scripts.consts import RED_SLIME_1, RED_SLIME_2, RED_SLIME_3
+from scripts.enemies.base_enemy import BaseEnemy
+from scripts.consts import RED_SLIME_1, RED_SLIME_2, RED_SLIME_3
 
 
 class RedSlime(BaseEnemy):

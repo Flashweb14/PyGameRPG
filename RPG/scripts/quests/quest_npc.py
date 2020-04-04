@@ -1,5 +1,5 @@
-from RPG.scripts.game_objects.game_object import GameObject
-from RPG.scripts.gui.quest_gui import QuestGui
+from scripts.game_objects.game_object import GameObject
+from scripts.gui.quest_gui import QuestGui
 
 
 class QuestNPC(GameObject):

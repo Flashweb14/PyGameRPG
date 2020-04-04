@@ -1,7 +1,7 @@
 import pygame
-from RPG.scripts.gui.button import Button
-from RPG.scripts.game_processes.main_process import main_process
-from RPG.scripts.consts import LEVEL
+from scripts.gui.button import Button
+from scripts.game_processes.main_process import main_process
+from scripts.consts import LEVEL
 
 pygame.init()
 

@@ -1,5 +1,5 @@
-from RPG.scripts.game_objects.game_object import GameObject
-from RPG.scripts.consts import IRON_SWORD, WOODEN_BOW
+from scripts.game_objects.game_object import GameObject
+from scripts.consts import IRON_SWORD, WOODEN_BOW
 
 
 class Weapon(GameObject):

@@ -1,7 +1,7 @@
-from RPG.scripts.game_objects.game_object import GameObject
-from RPG.scripts.consts import USE_BUTTON, DROP_BUTTON, CLOSE_BUTTON, ACCEPT_BUTTON, REJECT_BUTTON, NEW_GAME_BTN, \
+from scripts.game_objects.game_object import GameObject
+from scripts.consts import USE_BUTTON, DROP_BUTTON, CLOSE_BUTTON, ACCEPT_BUTTON, REJECT_BUTTON, NEW_GAME_BTN, \
     EXIT_BTN, CONTINUE_BTN, MAIN_MENU_BTN
-from RPG.scripts.consts import CLICK_SOUND
+from scripts.consts import CLICK_SOUND
 
 
 class Button(GameObject):

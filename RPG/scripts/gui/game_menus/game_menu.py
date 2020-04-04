@@ -1,6 +1,6 @@
 import pygame
-from RPG.scripts.gui.button import Button
-from RPG.scripts.game_processes.main_menu_process import main_menu_process
+from scripts.gui.button import Button
+from scripts.game_processes.main_menu_process import main_menu_process
 
 
 class GameMenu:

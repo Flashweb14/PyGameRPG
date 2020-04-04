@@ -1,6 +1,6 @@
 import pygame
-from RPG.scripts.game_objects.game_object import GameObject
-from RPG.scripts.consts import ARROWS_INDICATOR, GAME_FONT
+from scripts.game_objects.game_object import GameObject
+from scripts.consts import ARROWS_INDICATOR, GAME_FONT
 
 
 class ArrowsIndicator(GameObject):
